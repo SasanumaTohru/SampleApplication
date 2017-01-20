@@ -1,5 +1,5 @@
 ﻿Namespace PrimitiveObject
-    Public Class 名称
+    Public Class 必須文字列
 
         'Private変数
         Private m_値 As String = String.Empty
@@ -7,16 +7,14 @@
         ''' <summary>
         ''' コンストラクタ
         ''' </summary>
-        ''' <param name="値">名称となる文字列を設定します。</param>
+        ''' <param name="値">文字列を設定します。</param>
         Public Sub New(値 As String)
-            'スペースの除去
-            Dim _値 As String = Trim(値)
             'バリデーション
-            If _値 = String.Empty Then
-                Throw New Exception("入力された文字が不正です。")
+            If 値 = String.Empty Then
+                Throw New Exception("文字が入力されていません。")
             End If
             '本処理
-            m_値 = _値
+            m_値 = 値
         End Sub
 
         ''' <summary>
