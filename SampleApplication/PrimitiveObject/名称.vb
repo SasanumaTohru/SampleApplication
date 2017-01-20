@@ -1,6 +1,9 @@
 ﻿Namespace PrimitiveObject
     Public Class 名称
 
+        ''' <summary>
+        ''' 値
+        ''' </summary>
         Private m_値 As String = String.Empty
 
         ''' <summary>
