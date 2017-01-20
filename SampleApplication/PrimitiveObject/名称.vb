@@ -8,7 +8,14 @@
         ''' </summary>
         ''' <param name="値">名称となる文字列を設定します。</param>
         Public Sub New(値 As String)
-            m_値 = Trim(値)
+            'スペースの除去
+            Dim _値 As String = Trim(値)
+            'バリデーション
+            If _値 = String.Empty Then
+                Throw New Exception("入力された文字が不正です。")
+            End If
+            '本処理
+            m_値 = _値
         End Sub
 
         ''' <summary>
