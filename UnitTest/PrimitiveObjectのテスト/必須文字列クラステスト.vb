@@ -11,7 +11,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
         '必須文字列クラスを生成する時は、値となる文字列を設定する。
         Dim 必須の文字列1 As New SampleApplication.PrimitiveObject.必須文字列(テスト値1)
-        '値プロパティは、読み取り専用である。
+        '値プロパティは読み取り専用である。
         Assert.AreEqual(テスト値1, 必須の文字列1.値)
 
         '必須文字列は、先頭と末尾のスペースを許容する。

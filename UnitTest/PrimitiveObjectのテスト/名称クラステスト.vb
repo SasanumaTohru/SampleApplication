@@ -15,7 +15,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
         '名称クラスを生成する時は、名称となる文字列を設定する。
         Dim 国名 As New SampleApplication.PrimitiveObject.名称(正値)
-        '値プロパティは、名称である文字列を返す。
+        '値プロパティは読み取り専用である。
         Assert.AreEqual(正値, 国名.値)
 
         'インスタンス生成時に値の先頭や末尾にスペースが含まれている場合、コンストラクタで除去する。
