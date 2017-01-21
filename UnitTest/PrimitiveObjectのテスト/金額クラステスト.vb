@@ -15,8 +15,8 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
         '振る舞いの検討
         'Assert.AreEqual("123,456,789円", 金額.値)
-        'Assert.AreEqual("\123,456,789", 金額.値)
-
+        'Assert.AreEqual("\123,456,789", 金額.円マーク付書式)
+        '金額.表示単位指定（一円単位、千円単位、百万円単位）
     End Sub
 
 End Class
