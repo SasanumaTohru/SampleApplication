@@ -20,6 +20,10 @@ Imports SampleApplication.PrimitiveObject
         Assert.AreEqual("123,457", 金額.表示単位指定(金額.表示単位リスト.千円))
         Assert.AreEqual("123", 金額.表示単位指定(金額.表示単位リスト.百万))
 
+        '負数
+        Dim マイナスの金額 As New 金額(-123456D)
+        Assert.AreEqual(-123456D, マイナスの金額.値)
+
     End Sub
 
 End Class
