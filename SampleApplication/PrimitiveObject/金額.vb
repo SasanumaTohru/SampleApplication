@@ -79,18 +79,18 @@
         ''' 金額単位の変更用パラメーター
         ''' </summary>
         Private Enum 表示桁 As Integer
-            円単位 = 1
-            千円単位 = 1000
-            百万単位 = 1000000
+            円単位 = 1D
+            千円単位 = 1000D
+            百万単位 = 1000000D
         End Enum
 
         ''' <summary>
         ''' 桁変更（内部メソッド）
         ''' </summary>
-        ''' <param name="倍率"></param>
+        ''' <param name="単位"></param>
         ''' <returns></returns>
-        Private Function 桁変更(倍率 As 表示桁) As String
-            Return Math.Round(m_値 / 倍率, 0, MidpointRounding.AwayFromZero).ToString("#,##0")
+        Private Function 桁変更(単位 As 表示桁) As String
+            Return Math.Round(m_値 / 単位, 0, MidpointRounding.AwayFromZero).ToString("#,##0")
         End Function
 
     End Class
