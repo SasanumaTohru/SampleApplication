@@ -45,7 +45,7 @@
         ''' <summary>
         ''' 表示単位リスト
         ''' </summary>
-        Public Enum 表示単位リスト
+        Public Enum 表示単位リスト As Integer
             円 = 1
             千円 = 2
             百万 = 3
@@ -61,17 +61,13 @@
 
                 Dim _値 As String = String.Empty
 
-                Const 円単位 As Integer = 1
-                Const 千円単位 As Integer = 1000
-                Const 百万単位 As Integer = 1000000
-
                 Select Case 表示単位
                     Case 表示単位リスト.円
-                        _値 = (桁変更(円単位))
+                        _値 = (桁変更(表示桁.円単位))
                     Case 表示単位リスト.千円
-                        _値 = (桁変更(千円単位))
+                        _値 = (桁変更(表示桁.千円単位))
                     Case 表示単位リスト.百万
-                        _値 = (桁変更(百万単位))
+                        _値 = (桁変更(表示桁.百万単位))
                 End Select
 
                 Return _値
@@ -80,12 +76,21 @@
         End Property
 
         ''' <summary>
+        ''' 金額単位の変更用パラメーター
+        ''' </summary>
+        Private Enum 表示桁 As Integer
+            円単位 = 1
+            千円単位 = 1000
+            百万単位 = 1000000
+        End Enum
+
+        ''' <summary>
         ''' 桁変更（内部メソッド）
         ''' </summary>
         ''' <param name="倍率"></param>
         ''' <returns></returns>
-        Private Function 桁変更(倍率 As Integer) As String
-            Return Math.Round(m_値 / 倍率, 0).ToString("#,##0")
+        Private Function 桁変更(倍率 As 表示桁) As String
+            Return Math.Round(m_値 / 倍率, 0, MidpointRounding.AwayFromZero).ToString("#,##0")
         End Function
 
     End Class
