@@ -82,6 +82,8 @@
     <Import Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PrimitiveObjectのテスト\日時クラスのテスト.vb" />
+    <Compile Include="PrimitiveObjectのテスト\自然数クラスのテスト.vb" />
     <Compile Include="PrimitiveObjectのテスト\金額クラステスト.vb" />
     <Compile Include="PrimitiveObjectのテスト\必須文字列クラステスト.vb" />
     <Compile Include="PrimitiveObjectのテスト\名称クラステスト.vb" />
