@@ -18,9 +18,13 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Assert.AreEqual("2017/05/25", 日付と時間.値.ToShortDateString)
         Assert.AreEqual("20:45", 日付と時間2.値.ToShortTimeString)
         'オリジナルの実装
-        Assert.AreEqual("平成29年5月25日", 日付と時間.和暦日付文字列)
-
-
+        Assert.AreEqual("平成29年5月25日", 日付と時間.和暦日付文字列) '下記に修正
+        'プロパティ名　　戻り値
+        '西暦年月日　　　2017年1月25日
+        '西暦年月日曜日　2017年1月25日(水)
+        '和暦年月日　　　平成29年1月25日
+        '和暦年月日曜日　平成29年1月25日(水)
+        
     End Sub
 
 End Class
