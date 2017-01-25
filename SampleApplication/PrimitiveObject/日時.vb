@@ -22,11 +22,46 @@
             End Get
         End Property
 
-        Public ReadOnly Property 和暦日付文字列 As String
+        Public Enum 曜日表示 As Integer
+            なし = 1
+            あり = 2
+        End Enum
+
+        ''' <summary>
+        ''' 西暦年月日プロパティ
+        ''' </summary>
+        ''' <param name="曜日表示"></param>
+        ''' <returns></returns>
+        Public ReadOnly Property 西暦年月日(曜日表示 As 曜日表示) As String
             Get
-                Dim 文化圏 As New System.Globalization.CultureInfo("ja-JP", False)
-                文化圏.DateTimeFormat.Calendar = New System.Globalization.JapaneseCalendar()
-                Return m_値.ToString("gy年M月d日", 文化圏)
+                Dim _値 As String = String.Empty
+                Select Case 曜日表示
+                    Case 曜日表示.なし
+                        _値 = m_値.ToString("yyyy年M月d日")
+                    Case 曜日表示.あり
+                        _値 = m_値.ToString("yyyy年M月d日(ddd)")
+                End Select
+                Return _値
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' 和暦年月日プロパティ
+        ''' </summary>
+        ''' <param name="曜日表示"></param>
+        ''' <returns></returns>
+        Public ReadOnly Property 和暦年月日(曜日表示 As 曜日表示) As String
+            Get
+                Dim _値 As String = String.Empty
+                Dim 文化圏 As New Globalization.CultureInfo("ja-JP", False)
+                文化圏.DateTimeFormat.Calendar = New Globalization.JapaneseCalendar()
+                Select Case 曜日表示
+                    Case 曜日表示.なし
+                        _値 = m_値.ToString("gy年M月d日", 文化圏)
+                    Case 曜日表示.あり
+                        _値 = m_値.ToString("gy年M月d日(ddd)", 文化圏)
+                End Select
+                Return _値
             End Get
         End Property
 
