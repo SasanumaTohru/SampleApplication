@@ -1,5 +1,5 @@
 ﻿Namespace PrimitiveObject
-    Public Class 日時
+    Public Class 日付
 
         '値フィールド　初期値は「0001/01/01 0:00:00」
         Private m_値 As Date = Date.MinValue
@@ -32,7 +32,7 @@
         ''' </summary>
         ''' <param name="曜日表示"></param>
         ''' <returns></returns>
-        Public ReadOnly Property 西暦年月日(曜日表示 As 曜日表示) As String
+        Public ReadOnly Property 西暦年月日文字列(曜日表示 As 曜日表示) As String
             Get
                 Dim _値 As String = String.Empty
                 Select Case 曜日表示
@@ -46,11 +46,11 @@
         End Property
 
         ''' <summary>
-        ''' 和暦年月日プロパティ
+        ''' DateTime型の値を書式「平成XX年XX月XX日」の文字列で返します。
         ''' </summary>
-        ''' <param name="曜日表示"></param>
+        ''' <param name="曜日表示">曜日の有無を指定します。曜日の書式は「(X)」です。</param>
         ''' <returns></returns>
-        Public ReadOnly Property 和暦年月日(曜日表示 As 曜日表示) As String
+        Public ReadOnly Property 和暦年月日文字列(曜日表示 As 曜日表示) As String
             Get
                 Dim _値 As String = String.Empty
                 Dim 文化圏 As New Globalization.CultureInfo("ja-JP", False)
