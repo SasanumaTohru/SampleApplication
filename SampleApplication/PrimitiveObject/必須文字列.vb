@@ -5,12 +5,12 @@
         Private m_値 As String = String.Empty
 
         ''' <summary>
-        ''' コンストラクタ
+        ''' コンストラクタ　スペースのみの文字列と文字列0は許可しません。文字の先頭と末尾のスペースは許可します。
         ''' </summary>
         ''' <param name="値">文字列を設定します。</param>
         Public Sub New(値 As String)
             'バリデーション
-            If 値 = String.Empty Then
+            If Trim(値) = String.Empty Then
                 Throw New Exception("文字が入力されていません。")
             End If
             '本処理

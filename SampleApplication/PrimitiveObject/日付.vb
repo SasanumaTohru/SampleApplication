@@ -32,7 +32,7 @@
         ''' </summary>
         ''' <param name="曜日表示"></param>
         ''' <returns></returns>
-        Public ReadOnly Property 西暦年月日文字列(曜日表示 As 曜日表示) As String
+        Public ReadOnly Property 西暦年月日文字列(Optional 曜日表示 As 曜日表示 = 曜日表示.なし) As String
             Get
                 Dim _値 As String = String.Empty
                 Select Case 曜日表示
@@ -50,7 +50,7 @@
         ''' </summary>
         ''' <param name="曜日表示">曜日の有無を指定します。曜日の書式は「(X)」です。</param>
         ''' <returns></returns>
-        Public ReadOnly Property 和暦年月日文字列(曜日表示 As 曜日表示) As String
+        Public ReadOnly Property 和暦年月日文字列(Optional 曜日表示 As 曜日表示 = 曜日表示.なし) As String
             Get
                 Dim _値 As String = String.Empty
                 Dim 文化圏 As New Globalization.CultureInfo("ja-JP", False)
