@@ -46,7 +46,7 @@
         ''' </summary>
         ''' <param name="表示単位"></param>
         ''' <returns></returns>
-        Public ReadOnly Property 表示単位指定(表示単位 As 表示単位リスト) As String
+        Public ReadOnly Property 表示単位指定(Optional 表示単位 As 表示単位リスト = 表示単位リスト.円) As String
             Get
 
                 Dim _値 As String = String.Empty

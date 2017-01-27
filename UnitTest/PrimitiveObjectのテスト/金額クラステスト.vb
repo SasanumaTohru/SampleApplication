@@ -4,7 +4,7 @@ Imports SampleApplication.PrimitiveObject
 
 <TestClass()> Public Class 金額クラステスト
 
-    Private Const テスト値1 As Decimal = 123456789
+    Private Const テスト値1 As Decimal = 123456789D
 
     <TestMethod()> Public Sub 金額クラス基本テスト()
 
@@ -18,6 +18,8 @@ Imports SampleApplication.PrimitiveObject
         Assert.AreEqual("\123,456,789", 金額.円マーク付書式)
         '値を円単位の文字列にして返す。
         Assert.AreEqual("123,456,789", 金額.表示単位指定(金額.表示単位リスト.円))
+        '　オプションは省略可能。デフォルトは円単位。
+        Assert.AreEqual("123,456,789", 金額.表示単位指定())
         '値を千円単位の文字列にして返す。
         Assert.AreEqual("123,457", 金額.表示単位指定(金額.表示単位リスト.千円))
         '値を百万円単位の文字列にして返す。
