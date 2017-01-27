@@ -1,7 +1,7 @@
 ﻿Namespace PrimitiveObject
     Public Class 日付
 
-        '値フィールド　初期値は「0001/01/01 0:00:00」
+    '値フィールド　初期値は「0001/01/01 0:00:00」 ただし、時間はスコープ外
         Private m_値 As Date = Date.MinValue
 
         ''' <summary>
