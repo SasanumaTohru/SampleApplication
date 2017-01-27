@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObject\商品.vb" />
+    <Compile Include="BusinessObject\商品分類.vb" />
     <Compile Include="PrimitiveObject\名称.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -94,6 +95,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="設計ドキュメント\BusinessObjectDiagram.cd" />
     <None Include="設計ドキュメント\PrimitiveObjectDiagram.cd" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

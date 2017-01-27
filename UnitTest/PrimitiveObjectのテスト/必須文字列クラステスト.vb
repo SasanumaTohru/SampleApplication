@@ -1,7 +1,4 @@
-﻿Imports System.Text
-Imports Microsoft.VisualStudio.TestTools.UnitTesting
-
-<TestClass()> Public Class 必須文字列クラステスト
+﻿<TestClass()> Public Class 必須文字列クラステスト
 
     'テスト用パラメーター
     Private Const テスト値1 As String = "日本"

@@ -1,7 +1,4 @@
-﻿Imports System.Text
-Imports Microsoft.VisualStudio.TestTools.UnitTesting
-
-<TestClass()> Public Class 名称クラステスト
+﻿<TestClass()> Public Class 名称クラステスト
 
     'テスト用パラメーター
     Private Const 正値 As String = "日本"

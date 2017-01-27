@@ -1,6 +1,4 @@
-﻿Imports System.Text
-Imports Microsoft.VisualStudio.TestTools.UnitTesting
-Imports SampleApplication.PrimitiveObject
+﻿Imports SampleApplication.PrimitiveObject
 
 <TestClass()> Public Class 金額クラステスト
 
