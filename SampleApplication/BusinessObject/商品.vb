@@ -2,7 +2,7 @@
     Public Class 商品
 
         Private m_メーカー製品コード As PrimitiveObject.必須文字列
-        Private m_メーカー As PrimitiveObject.名称
+        Private m_メーカー As BusinessObject.メーカー
         Private m_商品名 As PrimitiveObject.名称
         Private m_分類 As 商品分類
         Private m_仕入金額 As PrimitiveObject.金額
@@ -18,7 +18,7 @@
         ''' <param name="仕入金額"></param>
         ''' <param name="販売価格"></param>
         Public Sub New(メーカー製品コード As PrimitiveObject.必須文字列,
-                       メーカー As PrimitiveObject.名称,
+                       メーカー As BusinessObject.メーカー,
                        商品名 As PrimitiveObject.名称,
                        分類 As 商品分類,
                        仕入金額 As PrimitiveObject.金額,
@@ -39,7 +39,7 @@
             End Get
         End Property
 
-        Public ReadOnly Property メーカー As PrimitiveObject.名称
+        Public ReadOnly Property メーカー As BusinessObject.メーカー
             Get
                 Return m_メーカー
             End Get

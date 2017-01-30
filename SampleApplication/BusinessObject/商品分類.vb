@@ -22,6 +22,11 @@
         ''' </summary>
         ''' <param name="分類"></param>
         Public Sub New(分類 As 分類リスト)
+            'バリデーション
+            If 分類リスト.家電 > 分類 Or 分類 > 分類リスト.時計 Then
+                Throw New Exception("指定された商品分類は存在しません。")
+            End If
+            '本処理
             m_分類 = 分類
         End Sub
 

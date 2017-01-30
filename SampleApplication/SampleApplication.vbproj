@@ -63,6 +63,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessObject\メーカー.vb" />
     <Compile Include="BusinessObject\商品.vb" />
     <Compile Include="BusinessObject\商品分類.vb" />
     <Compile Include="PrimitiveObject\名称.vb" />

@@ -82,6 +82,7 @@
     <Import Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessObjectのテスト\メーカークラステスト.vb" />
     <Compile Include="BusinessObjectのテスト\商品分類テスト.vb" />
     <Compile Include="BusinessObjectのテスト\商品クラステスト.vb" />
     <Compile Include="PrimitiveObjectのテスト\日付クラスのテスト.vb" />

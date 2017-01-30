@@ -26,7 +26,7 @@ Imports SampleApplication.BusinessObject
         '分類プロパティは、商品分類クラスの分類リストから選択する。
         Dim 新しい商品 As New 商品(
             New 必須文字列(S1メーカー製品コード),
-            New 名称(S1メーカー),
+            New メーカー(メーカー.メーカーリスト.パナソニック),
             New 名称(S1商品名),
             New 商品分類(商品分類.分類リスト.AV機器),
             New 金額(S1仕入価格),
@@ -35,7 +35,7 @@ Imports SampleApplication.BusinessObject
         'ユースケース：登録した商品を参照する
         'すべてのプロパティは読み取り専用。
         Assert.AreEqual(S1メーカー製品コード, 新しい商品.メーカー製品コード.値)
-        Assert.AreEqual(S1メーカー, 新しい商品.メーカー.値)
+        Assert.AreEqual(S1メーカー, 新しい商品.メーカー.名称.値)
         Assert.AreEqual(S1商品名, 新しい商品.商品名.値)
         Assert.AreEqual(S1分類, 新しい商品.分類.名称.値)
         Assert.AreEqual(S1仕入価格, 新しい商品.仕入価格.値)
