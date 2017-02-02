@@ -66,6 +66,7 @@
     <Compile Include="BusinessObject\メーカー.vb" />
     <Compile Include="BusinessObject\商品.vb" />
     <Compile Include="BusinessObject\商品分類.vb" />
+    <Compile Include="BusinessObject\商品ID.vb" />
     <Compile Include="PrimitiveObject\名称.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

@@ -1,8 +1,8 @@
 ﻿Namespace BusinessObject
     Public Class 商品
 
-        Private m_メーカー製品コード As PrimitiveObject.必須文字列
-        Private m_メーカー As BusinessObject.メーカー
+        Private m_商品ID As 商品ID
+        Private m_メーカー As メーカー
         Private m_商品名 As PrimitiveObject.名称
         Private m_分類 As 商品分類
         Private m_仕入金額 As PrimitiveObject.金額
@@ -11,20 +11,20 @@
         ''' <summary>
         ''' 新規作成時のコンストラクタ
         ''' </summary>
-        ''' <param name="メーカー製品コード"></param>
+        ''' <param name="商品ID"></param>
         ''' <param name="メーカー"></param>
         ''' <param name="商品名"></param>
         ''' <param name="分類"></param>
         ''' <param name="仕入金額"></param>
         ''' <param name="販売価格"></param>
-        Public Sub New(メーカー製品コード As PrimitiveObject.必須文字列,
+        Public Sub New(商品ID As 商品ID,
                        メーカー As BusinessObject.メーカー,
                        商品名 As PrimitiveObject.名称,
                        分類 As 商品分類,
                        仕入金額 As PrimitiveObject.金額,
                        販売価格 As PrimitiveObject.金額)
 
-            m_メーカー製品コード = メーカー製品コード
+            m_商品ID = 商品ID
             m_メーカー = メーカー
             m_商品名 = 商品名
             m_分類 = 分類
@@ -33,9 +33,9 @@
 
         End Sub
 
-        Public ReadOnly Property メーカー製品コード As PrimitiveObject.必須文字列
+        Public ReadOnly Property 商品ID As 商品ID
             Get
-                Return m_メーカー製品コード
+                Return m_商品ID
             End Get
         End Property
 
