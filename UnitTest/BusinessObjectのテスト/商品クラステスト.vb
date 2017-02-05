@@ -1,5 +1,5 @@
 ﻿Imports SampleApplication.PrimitiveObject
-Imports SampleApplication.BusinessObject
+Imports SampleApplication.BusinessObject.商品
 
 <TestClass()> Public Class 商品クラステスト
 
@@ -23,6 +23,7 @@ Imports SampleApplication.BusinessObject
 
         'ユースケース：新しい商品を登録する
         '商品クラスは完全コンストラクタ。
+        'メーカープロパティは、メーカークラスのメーカーリストから選択する。
         '分類プロパティは、商品分類クラスの分類リストから選択する。
         Dim 新しい商品 As New 商品(
             New 商品ID(S1商品ID),
@@ -40,14 +41,7 @@ Imports SampleApplication.BusinessObject
         Assert.AreEqual(S1分類, 新しい商品.分類.名称.値)
         Assert.AreEqual(S1仕入価格, 新しい商品.仕入価格.値)
         Assert.AreEqual(S1販売価格, 新しい商品.販売価格.値)
-
-        'ユースケース：仕入価格を変更する
-        新しい商品.仕入価格を変更する(New 金額(79900D))
-        Assert.AreEqual(79900D, 新しい商品.仕入価格.値)
-
-        'ユースケース：販売価格を変更する
-        新しい商品.販売価格を変更する(New 金額(89800D))
-        Assert.AreEqual(89800D, 新しい商品.販売価格.値)
+        Assert.AreEqual(S1販売価格 - S1仕入価格, 新しい商品.売上利益.値)
 
     End Sub
 

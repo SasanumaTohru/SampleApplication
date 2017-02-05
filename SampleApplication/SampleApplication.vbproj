@@ -63,10 +63,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessObject\メーカー.vb" />
-    <Compile Include="BusinessObject\商品.vb" />
-    <Compile Include="BusinessObject\商品分類.vb" />
-    <Compile Include="BusinessObject\商品ID.vb" />
+    <Compile Include="BusinessObject\商品\メーカー.vb" />
+    <Compile Include="BusinessObject\商品\価格変更リスト.vb" />
+    <Compile Include="BusinessObject\商品\価格変更項目.vb" />
+    <Compile Include="BusinessObject\商品\商品.vb" />
+    <Compile Include="BusinessObject\商品\商品分類.vb" />
+    <Compile Include="BusinessObject\商品\商品ID.vb" />
     <Compile Include="PrimitiveObject\名称.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -97,8 +99,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="設計ドキュメント\BusinessObjectDiagram.cd" />
-    <None Include="設計ドキュメント\PrimitiveObjectDiagram.cd" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

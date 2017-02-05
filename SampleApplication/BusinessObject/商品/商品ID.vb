@@ -1,4 +1,4 @@
-﻿Namespace BusinessObject
+﻿Namespace BusinessObject.商品
     Public Class 商品ID
 
         Private m_値 As String = String.Empty

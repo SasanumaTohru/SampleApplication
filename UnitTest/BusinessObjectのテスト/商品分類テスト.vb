@@ -1,4 +1,4 @@
-﻿Imports SampleApplication.BusinessObject
+﻿Imports SampleApplication.BusinessObject.商品
 
 <TestClass()> Public Class 商品分類テスト
 

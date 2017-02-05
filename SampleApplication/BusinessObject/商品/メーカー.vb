@@ -1,4 +1,4 @@
-﻿Namespace BusinessObject
+﻿Namespace BusinessObject.商品
     Public Class メーカー
 
         ''' <summary>
