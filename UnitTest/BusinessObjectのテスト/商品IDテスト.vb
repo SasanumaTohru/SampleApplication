@@ -36,6 +36,11 @@
         Dim 商品ID As New 商品ID("abcdef")
     End Sub
 
+    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub 商品IDの重複()
+        '指定したキーがすでに存在する場合は例外
+        'テスト条件：DBに登録済み商品IDを使用する。
+        Dim 商品ID As New 商品ID("999999")
+    End Sub
 
 
 End Class

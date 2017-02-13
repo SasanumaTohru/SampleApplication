@@ -11,7 +11,18 @@
                 Throw New Exception("商品IDに6桁の数字以外は使用できません。")
             End If
             '本処理
+            Using db As New SampleAppDBEntities
+
+                Dim rs = From o In db.M_商品 Where o.商品ID = 値
+
+                If rs.Count <> 0 Then
+                    Throw New Exception("この商品IDは既に使用されています。")
+                End If
+
+            End Using
+
             m_値 = 値
+
         End Sub
 
         Public ReadOnly Property 値 As String

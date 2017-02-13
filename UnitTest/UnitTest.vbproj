@@ -48,8 +48,19 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -83,10 +94,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObjectのテスト\価格変更項目クラステスト.vb" />
-    <Compile Include="BusinessObjectのテスト\製品IDテスト.vb" />
+    <Compile Include="BusinessObjectのテスト\商品IDテスト.vb" />
     <Compile Include="BusinessObjectのテスト\メーカークラステスト.vb" />
     <Compile Include="BusinessObjectのテスト\商品分類テスト.vb" />
     <Compile Include="BusinessObjectのテスト\商品クラステスト.vb" />
+    <Compile Include="M_商品.vb">
+      <DependentUpon>TestDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="PrimitiveObjectのテスト\日付クラスのテスト.vb" />
     <Compile Include="PrimitiveObjectのテスト\自然数クラスのテスト.vb" />
     <Compile Include="PrimitiveObjectのテスト\金額クラステスト.vb" />
@@ -107,6 +121,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="TestDBModel.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TestDBModel.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="TestDBModel.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestDBModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -117,6 +146,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -126,12 +156,35 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="packages.config" />
+    <EntityDeploy Include="TestDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TestDBModel.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <None Include="TestDBModel.edmx.diagram">
+      <DependentUpon>TestDBModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SampleApplication\SampleApplication.vbproj">
       <Project>{6f05144f-c921-4844-8edd-afc93b466f0e}</Project>
       <Name>SampleApplication</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TestDBModel.edmx</DependentUpon>
+      <LastGenOutput>TestDBModel.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="TestDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TestDBModel.edmx</DependentUpon>
+      <LastGenOutput>TestDBModel.vb</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

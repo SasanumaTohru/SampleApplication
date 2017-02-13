@@ -21,7 +21,7 @@
         ''' <param name="仕入金額"></param>
         ''' <param name="販売価格"></param>
         Public Sub New(商品ID As 商品ID,
-                       メーカー As BusinessObject.商品.メーカー,
+                       メーカー As メーカー,
                        商品名 As PrimitiveObject.名称,
                        分類 As 商品分類,
                        仕入金額 As PrimitiveObject.金額,
@@ -50,7 +50,7 @@
         ''' メーカープロパティ
         ''' </summary>
         ''' <returns></returns>
-        Public ReadOnly Property メーカー As BusinessObject.商品.メーカー
+        Public ReadOnly Property メーカー As メーカー
             Get
                 Return m_メーカー
             End Get
