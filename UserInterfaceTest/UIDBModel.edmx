@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TestDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SampleAppDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="M_商品">
           <Key>
             <PropertyRef Name="商品ID" />
@@ -16,14 +16,14 @@
           <Property Name="仕入価格" Type="money" Nullable="false" />
           <Property Name="販売価格" Type="money" />
         </EntityType>
-        <EntityContainer Name="TestDBModelStoreContainer">
+        <EntityContainer Name="SampleAppDBModelStoreContainer">
           <EntitySet Name="M_商品" EntityType="Self.M_商品" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="TestDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SampleAppDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="M_商品">
           <Key>
             <PropertyRef Name="商品ID" />
@@ -43,9 +43,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TestDBModelStoreContainer" CdmEntityContainer="SampleAppDBEntities">
+        <EntityContainerMapping StorageEntityContainer="SampleAppDBModelStoreContainer" CdmEntityContainer="SampleAppDBEntities">
           <EntitySetMapping Name="M_商品">
-            <EntityTypeMapping TypeName="TestDBModel.M_商品">
+            <EntityTypeMapping TypeName="SampleAppDBModel.M_商品">
               <MappingFragment StoreEntitySet="M_商品">
                 <ScalarProperty Name="商品ID" ColumnName="商品ID" />
                 <ScalarProperty Name="メーカー" ColumnName="メーカー" />
