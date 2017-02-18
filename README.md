@@ -5,6 +5,6 @@ Blog『ソフトウェア開発戦略（ http://swdevstrategy.blogspot.jp/ ）�
 作成開始日：2017年1月20日  
 
 このサンプル（Visual Studioのソリューション）は、次のプロジェクトで構成されています。  
-1.SampleApplication   ビジネスロジック（BL）のクラスライブラリー・プロジェクト。  
-2.UnitTest            SampleApplicationのテスト用プロジェクト。  
-3.UserInterfaceTest   UI層における実装検討用プロジェクト。
+1.SampleApplication : ビジネスロジック（BL）のクラスライブラリー・プロジェクト。  
+2.UnitTest : SampleApplicationのテスト用プロジェクト。  
+3.UserInterfaceTest : UI層における実装検討用プロジェクト。
