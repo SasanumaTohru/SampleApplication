@@ -10,17 +10,15 @@
             If Text.RegularExpressions.Regex.IsMatch(値, "^[0-9]{6}$") = False Then
                 Throw New Exception("商品IDに6桁の数字以外は使用できません。")
             End If
-            '本処理
-            Using db As New SampleAppDBEntities
 
-                Dim rs = From o In db.M_商品 Where o.商品ID = 値
+            Using MyDB As New SampleApplication.SampleAppDBEntities
+                Dim レコード = From 項目 In MyDB.M_商品 Where 項目.商品ID = 値
 
-                If rs.Count <> 0 Then
+                If レコード.Count <> 0 Then
                     Throw New Exception("この商品IDは既に使用されています。")
                 End If
-
             End Using
-
+            '本処理
             m_値 = 値
 
         End Sub

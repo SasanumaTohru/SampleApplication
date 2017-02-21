@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TestDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TestDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="M_商品">
           <Key>
             <PropertyRef Name="商品ID" />
@@ -14,30 +14,29 @@
           <Property Name="商品名" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="分類" Type="int" Nullable="false" />
           <Property Name="仕入価格" Type="money" Nullable="false" />
-          <Property Name="販売価格" Type="money" />
+          <Property Name="販売価格" Type="money" Nullable="false" />
         </EntityType>
         <EntityContainer Name="TestDBModelStoreContainer">
           <EntitySet Name="M_商品" EntityType="Self.M_商品" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TestDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SampleAppDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="M_商品" EntityType="TestDBModel.M_商品" />
+        </EntityContainer>
         <EntityType Name="M_商品">
           <Key>
             <PropertyRef Name="商品ID" />
           </Key>
-          <Property Name="商品ID" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="商品ID" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
           <Property Name="メーカー" Type="Int32" Nullable="false" />
-          <Property Name="商品名" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="商品名" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="分類" Type="Int32" Nullable="false" />
-          <Property Name="仕入価格" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="販売価格" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="仕入価格" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="販売価格" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
         </EntityType>
-        <EntityContainer Name="SampleAppDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="M_商品" EntityType="Self.M_商品" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -47,12 +46,12 @@
           <EntitySetMapping Name="M_商品">
             <EntityTypeMapping TypeName="TestDBModel.M_商品">
               <MappingFragment StoreEntitySet="M_商品">
-                <ScalarProperty Name="商品ID" ColumnName="商品ID" />
-                <ScalarProperty Name="メーカー" ColumnName="メーカー" />
-                <ScalarProperty Name="商品名" ColumnName="商品名" />
-                <ScalarProperty Name="分類" ColumnName="分類" />
-                <ScalarProperty Name="仕入価格" ColumnName="仕入価格" />
                 <ScalarProperty Name="販売価格" ColumnName="販売価格" />
+                <ScalarProperty Name="仕入価格" ColumnName="仕入価格" />
+                <ScalarProperty Name="分類" ColumnName="分類" />
+                <ScalarProperty Name="商品名" ColumnName="商品名" />
+                <ScalarProperty Name="メーカー" ColumnName="メーカー" />
+                <ScalarProperty Name="商品ID" ColumnName="商品ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

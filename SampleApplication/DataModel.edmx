@@ -14,7 +14,7 @@
           <Property Name="商品名" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="分類" Type="int" Nullable="false" />
           <Property Name="仕入価格" Type="money" Nullable="false" />
-          <Property Name="販売価格" Type="money" />
+          <Property Name="販売価格" Type="money" Nullable="false" />
         </EntityType>
         <EntityContainer Name="SampleAppDBModelStoreContainer">
           <EntitySet Name="M_商品" EntityType="Self.M_商品" Schema="dbo" store:Type="Tables" />
@@ -35,7 +35,7 @@
           <Property Name="商品名" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="分類" Type="Int32" Nullable="false" />
           <Property Name="仕入価格" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-          <Property Name="販売価格" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="販売価格" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>

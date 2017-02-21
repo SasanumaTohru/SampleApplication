@@ -16,6 +16,6 @@ Partial Public Class M_商品
     Public Property 商品名 As String
     Public Property 分類 As Integer
     Public Property 仕入価格 As Decimal
-    Public Property 販売価格 As Nullable(Of Decimal)
+    Public Property 販売価格 As Decimal
 
 End Class

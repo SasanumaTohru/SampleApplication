@@ -36,6 +36,29 @@
             End Get
         End Property
 
+        Public ReadOnly Property 価格区分 As 価格区分リスト
+            Get
+                Return m_価格区分
+            End Get
+        End Property
+
+        Public ReadOnly Property 現行価格 As PrimitiveObject.金額
+            Get
+                Return m_現行価格
+            End Get
+        End Property
+
+        Public ReadOnly Property 変更後価格 As PrimitiveObject.金額
+            Get
+                Return m_変更後価格
+            End Get
+        End Property
+
+        Public ReadOnly Property 適用開始日 As PrimitiveObject.日付
+            Get
+                Return m_適用開始日
+            End Get
+        End Property
 
     End Class
 End Namespace
