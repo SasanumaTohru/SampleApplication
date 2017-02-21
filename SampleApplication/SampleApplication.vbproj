@@ -75,7 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObject\商品\メーカー.vb" />
-    <Compile Include="BusinessObject\商品\価格変更リスト.vb" />
+    <Compile Include="BusinessObject\商品\価格変更予定表.vb" />
     <Compile Include="BusinessObject\商品\価格変更項目.vb" />
     <Compile Include="BusinessObject\商品\取扱商品.vb" />
     <Compile Include="BusinessObject\商品\商品.vb" />
