@@ -12,12 +12,6 @@ Imports SampleApplication.PrimitiveObject
                       New 金額(89800D),
                       New 日付(#03/01/2017#))
 
-        Assert.AreEqual(商品ID1.値, 価格変更項目1.商品ID.値)
-        Assert.AreEqual(”仕入”, 価格変更項目1.価格区分.ToString)
-        Assert.AreEqual(90000D, 価格変更項目1.現行価格.値)
-        Assert.AreEqual(89800D, 価格変更項目1.変更後価格.値)
-        Assert.AreEqual(#03/01/2017#, 価格変更項目1.適用開始日.値)
-
         '価格変更予定表に価格変更項目を追加する
         Dim 価格変更予定表 As New 価格変更予定表 '新価格表は、価格変更リストが具体化されたものである。
         'メモ：価格変更リストを価格変更予定表に変更
@@ -29,7 +23,7 @@ Imports SampleApplication.PrimitiveObject
 
         '価格変更予定表の項目リストを参照する
         For Each 項目 As 価格変更項目 In 価格変更予定表.項目リスト
-            Debug.Print(項目.現行価格.円マーク付書式)
+            Assert.AreEqual("\90,000", 項目.現行価格.円マーク付書式)
         Next
 
     End Sub

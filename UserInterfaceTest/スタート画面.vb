@@ -1,6 +1,6 @@
 ﻿Imports SampleApplication
 
-Public Class Form1
+Public Class スタート画面
 
     ''' <summary>
     ''' MessageBoxCaption構造体　※検証終了後にクラス化

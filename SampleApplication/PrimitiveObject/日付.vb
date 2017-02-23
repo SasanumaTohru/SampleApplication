@@ -1,7 +1,7 @@
 ﻿Namespace PrimitiveObject
     Public Class 日付
 
-    '値フィールド　初期値は「0001/01/01 0:00:00」 ただし、時間はスコープ外
+        '値フィールド　初期値は「0001/01/01 0:00:00」 ただし、時間はスコープ外
         Private m_値 As Date = Date.MinValue
 
         ''' <summary>
@@ -22,13 +22,16 @@
             End Get
         End Property
 
+        ''' <summary>
+        ''' 曜日表示列挙型
+        ''' </summary>
         Public Enum 曜日表示 As Integer
             なし = 1
             あり = 2
         End Enum
 
         ''' <summary>
-        ''' 西暦年月日プロパティ
+        ''' 西暦年月日文字列プロパティ
         ''' </summary>
         ''' <param name="曜日表示"></param>
         ''' <returns></returns>
@@ -46,7 +49,7 @@
         End Property
 
         ''' <summary>
-        ''' DateTime型の値を書式「平成XX年XX月XX日」の文字列で返します。
+        ''' 和暦年月日文字列プロパティ。DateTime型の値を書式「平成XX年XX月XX日」の文字列で返します。
         ''' </summary>
         ''' <param name="曜日表示">曜日の有無を指定します。曜日の書式は「(X)」です。</param>
         ''' <returns></returns>

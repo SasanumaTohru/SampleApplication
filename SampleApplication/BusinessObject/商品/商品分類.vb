@@ -1,9 +1,6 @@
 ﻿Namespace BusinessObject.商品
     Public Class 商品分類
 
-        ''' <summary>
-        ''' フィールド
-        ''' </summary>
         Private m_分類 As 分類リスト
 
         ''' <summary>

@@ -35,13 +35,16 @@
         Dim 商品ID As New 商品ID("abcdef")
     End Sub
 
-    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub 商品IDの重複()
+    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub 商品IDの重複は例外()
         '指定したキーがすでに存在する場合は例外とする。
         テストデータの確認()
         '重複したキーでの生成は例外になる。
         Dim 商品ID As New 商品ID("999999")
     End Sub
 
+    ''' <summary>
+    ''' テストデータの確認メソッド
+    ''' </summary>
     Private Shared Sub テストデータの確認()
         '参照をSampleApplicationにすることで名前解決する。
         Using TestDB As New SampleApplication.SampleAppDBEntities
@@ -65,9 +68,12 @@
                     .仕入価格 = _仕入価格,
                     .販売価格 = _販売価格
                 }
-                TestDB.M_商品.Add(商品)
-                TestDB.SaveChanges()
+                With TestDB
+                    .M_商品.Add(商品)
+                    .SaveChanges()
+                End With
             End If
         End Using
     End Sub
+
 End Class

@@ -12,6 +12,14 @@
             販売 = 2
         End Enum
 
+        ''' <summary>
+        ''' コンストラクタ
+        ''' </summary>
+        ''' <param name="商品ID"></param>
+        ''' <param name="価格区分"></param>
+        ''' <param name="現行価格"></param>
+        ''' <param name="変更後価格"></param>
+        ''' <param name="適用開始日"></param>
         Public Sub New(商品ID As 商品ID,
                        価格区分 As 価格区分リスト,
                        現行価格 As PrimitiveObject.金額,
@@ -27,33 +35,52 @@
             m_現行価格 = 現行価格
             m_変更後価格 = 変更後価格
             m_適用開始日 = 適用開始日
-
         End Sub
 
+        ''' <summary>
+        ''' 商品IDプロパティ
+        ''' </summary>
+        ''' <returns></returns>
         Public ReadOnly Property 商品ID As 商品ID
             Get
                 Return m_商品ID
             End Get
         End Property
 
+        ''' <summary>
+        ''' 価格区分プロパティ
+        ''' </summary>
+        ''' <returns></returns>
         Public ReadOnly Property 価格区分 As 価格区分リスト
             Get
                 Return m_価格区分
             End Get
         End Property
 
+        ''' <summary>
+        ''' 現行価格プロパティ
+        ''' </summary>
+        ''' <returns></returns>
         Public ReadOnly Property 現行価格 As PrimitiveObject.金額
             Get
                 Return m_現行価格
             End Get
         End Property
 
+        ''' <summary>
+        ''' 変更後価格プロパティ
+        ''' </summary>
+        ''' <returns></returns>
         Public ReadOnly Property 変更後価格 As PrimitiveObject.金額
             Get
                 Return m_変更後価格
             End Get
         End Property
 
+        ''' <summary>
+        ''' 適用開始日プロパティ
+        ''' </summary>
+        ''' <returns></returns>
         Public ReadOnly Property 適用開始日 As PrimitiveObject.日付
             Get
                 Return m_適用開始日

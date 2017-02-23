@@ -1,7 +1,6 @@
 ﻿Namespace PrimitiveObject
     Public Class 名称
 
-        'Private変数
         Private m_値 As String = String.Empty
 
         ''' <summary>

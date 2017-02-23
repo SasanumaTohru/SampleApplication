@@ -1,7 +1,6 @@
 ﻿Namespace PrimitiveObject
     Public Class 必須文字列
 
-        'Private変数
         Private m_値 As String = String.Empty
 
         ''' <summary>

@@ -1,7 +1,6 @@
 ﻿Namespace PrimitiveObject
     Public Class 金額
 
-        'フィールド
         Private m_値 As Decimal = 0
 
         ''' <summary>
@@ -48,16 +47,15 @@
         ''' <returns></returns>
         Public ReadOnly Property 表示単位指定(Optional 表示単位 As 表示単位リスト = 表示単位リスト.円) As String
             Get
-
                 Dim _値 As String = String.Empty
 
                 Select Case 表示単位
                     Case 表示単位リスト.円
-                        _値 = (桁変更(表示桁.円単位))
+                        _値 = (表示桁を変更する(単位.円))
                     Case 表示単位リスト.千円
-                        _値 = (桁変更(表示桁.千円単位))
+                        _値 = (表示桁を変更する(単位.千円))
                     Case 表示単位リスト.百万
-                        _値 = (桁変更(表示桁.百万単位))
+                        _値 = (表示桁を変更する(単位.百万))
                 End Select
 
                 Return _値
@@ -66,20 +64,20 @@
         End Property
 
         ''' <summary>
-        ''' 金額単位の変更用パラメーター
+        ''' 金額表示単位のパラメーター
         ''' </summary>
-        Private Enum 表示桁 As Integer
-            円単位 = 1D
-            千円単位 = 1000D
-            百万単位 = 1000000D
+        Private Enum 単位 As Integer
+            円 = 1D
+            千円 = 1000D
+            百万 = 1000000D
         End Enum
 
         ''' <summary>
-        ''' 桁変更（内部メソッド）
+        ''' 表示桁を変更する（内部メソッド）
         ''' </summary>
         ''' <param name="単位"></param>
         ''' <returns></returns>
-        Private Function 桁変更(単位 As 表示桁) As String
+        Private Function 表示桁を変更する(単位 As 単位) As String
             Return Math.Round(m_値 / 単位, 0, MidpointRounding.AwayFromZero).ToString("#,##0")
         End Function
 

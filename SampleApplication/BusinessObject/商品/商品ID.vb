@@ -3,6 +3,10 @@
 
         Private m_値 As String = String.Empty
 
+        ''' <summary>
+        ''' コンストラクタ
+        ''' </summary>
+        ''' <param name="値"></param>
         Public Sub New(値 As String)
             'バリデーション
             '商品IDは6桁の半角数字で表現される。
@@ -23,6 +27,10 @@
 
         End Sub
 
+        ''' <summary>
+        ''' 値プロパティ
+        ''' </summary>
+        ''' <returns></returns>
         Public ReadOnly Property 値 As String
             Get
                 Return m_値
