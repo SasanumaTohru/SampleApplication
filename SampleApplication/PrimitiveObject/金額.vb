@@ -67,9 +67,9 @@
         ''' 金額表示単位のパラメーター
         ''' </summary>
         Private Enum 単位 As Integer
-            円 = 1D
-            千円 = 1000D
-            百万 = 1000000D
+            円 = 1
+            千円 = 1000
+            百万 = 1000000
         End Enum
 
         ''' <summary>
