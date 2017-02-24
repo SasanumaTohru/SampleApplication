@@ -93,13 +93,21 @@
     <Import Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessObjectのテスト\商品分類コードテスト.vb" />
+    <Compile Include="BusinessObjectのテスト\メーカーIDテスト.vb" />
     <Compile Include="BusinessObjectのテスト\価格変更予定表クラステスト.vb" />
     <Compile Include="BusinessObjectのテスト\価格変更項目クラステスト.vb" />
     <Compile Include="BusinessObjectのテスト\商品IDテスト.vb" />
     <Compile Include="BusinessObjectのテスト\メーカークラステスト.vb" />
     <Compile Include="BusinessObjectのテスト\商品分類テスト.vb" />
     <Compile Include="BusinessObjectのテスト\商品クラステスト.vb" />
+    <Compile Include="M_メーカー.vb">
+      <DependentUpon>TestDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="M_商品.vb">
+      <DependentUpon>TestDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_商品分類.vb">
       <DependentUpon>TestDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TestDBModel.Context.vb">

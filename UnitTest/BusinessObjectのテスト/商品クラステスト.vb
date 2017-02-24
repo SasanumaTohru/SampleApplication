@@ -27,9 +27,9 @@ Imports SampleApplication.BusinessObject.商品
         '分類プロパティは、商品分類クラスの分類リストから選択する。
         Dim 新しい商品 As New 商品(
             New 商品ID(S1商品ID),
-            New メーカー(メーカー.メーカーリスト.パナソニック),
+            New メーカー(New メーカーID(2)),
             New 名称(S1商品名),
-            New 商品分類(商品分類.分類リスト.AV機器),
+            New 商品分類(New 商品分類コード(3)),
             New 金額(S1仕入価格),
             New 金額(S1販売価格))
 

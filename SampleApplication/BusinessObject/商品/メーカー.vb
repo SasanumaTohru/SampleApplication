@@ -1,47 +1,39 @@
 ﻿Namespace BusinessObject.商品
     Public Class メーカー
 
-        ''' <summary>
-        ''' フィールド
-        ''' </summary>
-        Private m_メーカー As メーカーリスト
+        Private m_ID As メーカーID
+        Private m_名称 As PrimitiveObject.名称
 
         ''' <summary>
-        ''' メーカーリスト
+        ''' 参照用コンストラクタ
         ''' </summary>
-        Public Enum メーカーリスト As Integer
-            ソニー = 1
-            パナソニック = 2
-            キヤノン = 3
-            カシオ = 4
-            ニコン = 5
-            富士通 = 6
-            日立 = 7
-            ASUS = 8
-            セイコー = 9
-            NEC = 10
-        End Enum
+        ''' <param name="ID"></param>
+        Public Sub New（ID As メーカーID)
+            Using MyDB As New SampleAppDBEntities
+                Dim レコードセット = From レコード In MyDB.M_メーカー Where レコード.ID = ID.値
 
-        ''' <summary>
-        ''' コンストラクタ。メーカーリストから値を選択します。
-        ''' </summary>
-        ''' <param name="メーカー"></param>
-        Public Sub New（メーカー As メーカーリスト)
-            'バリデーション
-            If メーカーリスト.ソニー > メーカー Or メーカー > メーカーリスト.NEC Then
-                Throw New Exception("指定されたメーカーは存在しません。")
-            End If
-            '本処理
-            m_メーカー = メーカー
+                m_ID = ID
+                m_名称 = New PrimitiveObject.名称(レコードセット.First.名称)
+            End Using
         End Sub
 
         ''' <summary>
-        ''' 名称プロパティ。
+        ''' IDプロパティ
+        ''' </summary>
+        ''' <returns></returns>
+        Public ReadOnly Property ID As メーカーID
+            Get
+                Return m_ID
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' 名称プロパティ
         ''' </summary>
         ''' <returns></returns>
         Public ReadOnly Property 名称 As PrimitiveObject.名称
             Get
-                Return New PrimitiveObject.名称(m_メーカー.ToString)
+                Return m_名称
             End Get
         End Property
 

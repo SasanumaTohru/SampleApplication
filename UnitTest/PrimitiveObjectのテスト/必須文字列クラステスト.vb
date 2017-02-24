@@ -17,14 +17,14 @@
 
     End Sub
 
-    <TestMethod()> <ExpectedException(GetType(System.Exception))> Public Sub 必須文字列クラス例外処理1()
+    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub 必須文字列クラス例外処理1()
 
         'インスタンスの生成時にセットする文字列が文字列0ならば例外を発生する。
         Dim 必須の文字列 As New SampleApplication.PrimitiveObject.必須文字列(String.Empty)
 
     End Sub
 
-    <TestMethod()> <ExpectedException(GetType(System.Exception))> Public Sub 必須文字列クラス例外処理2()
+    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub 必須文字列クラス例外処理2()
 
         'インスタンスの生成時にセットする文字列がスペースのみならば例外を発生する。
         Dim 必須の文字列 As New SampleApplication.PrimitiveObject.必須文字列("　　　　      　　　　　")

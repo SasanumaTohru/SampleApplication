@@ -23,13 +23,13 @@
 
     End Sub
 
-    <TestMethod()> <ExpectedException(GetType(System.Exception))> Public Sub 名称クラス例外処理1()
+    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub 名称クラス例外処理1()
         '次の場合、インスタンス生成時に例外を発生する。
         '文字列０（ゼロ）
         Dim 国名 As New SampleApplication.PrimitiveObject.名称(不正値3)
     End Sub
 
-    <TestMethod()> <ExpectedException(GetType(System.Exception))> Public Sub 名称クラス例外処理2()
+    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub 名称クラス例外処理2()
         '次の場合、インスタンス生成時に例外を発生する。
         '文字列がスペースのみ
         Dim 国名 As New SampleApplication.PrimitiveObject.名称(不正値4)

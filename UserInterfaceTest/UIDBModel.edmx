@@ -4,7 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SampleAppDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SampleAppDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="M_メーカー">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="名称" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="M_商品">
           <Key>
             <PropertyRef Name="商品ID" />
@@ -14,13 +21,21 @@
           <Property Name="商品名" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="分類" Type="int" Nullable="false" />
           <Property Name="仕入価格" Type="money" Nullable="false" />
-          <Property Name="販売価格" Type="money" />
+          <Property Name="販売価格" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_商品分類">
+          <Key>
+            <PropertyRef Name="コード" />
+          </Key>
+          <Property Name="コード" Type="int" Nullable="false" />
+          <Property Name="名称" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityContainer Name="SampleAppDBModelStoreContainer">
+          <EntitySet Name="M_メーカー" EntityType="Self.M_メーカー" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_商品" EntityType="Self.M_商品" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_商品分類" EntityType="Self.M_商品分類" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SampleAppDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -33,11 +48,27 @@
           <Property Name="商品名" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="分類" Type="Int32" Nullable="false" />
           <Property Name="仕入価格" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="販売価格" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="販売価格" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
         </EntityType>
         <EntityContainer Name="SampleAppDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="M_商品" EntityType="Self.M_商品" />
+          <EntitySet Name="M_メーカー" EntityType="SampleAppDBModel.M_メーカー" />
+          <EntitySet Name="M_商品分類" EntityType="SampleAppDBModel.M_商品分類" />
         </EntityContainer>
+        <EntityType Name="M_メーカー">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="名称" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="M_商品分類">
+          <Key>
+            <PropertyRef Name="コード" />
+          </Key>
+          <Property Name="コード" Type="Int32" Nullable="false" />
+          <Property Name="名称" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -53,6 +84,22 @@
                 <ScalarProperty Name="分類" ColumnName="分類" />
                 <ScalarProperty Name="仕入価格" ColumnName="仕入価格" />
                 <ScalarProperty Name="販売価格" ColumnName="販売価格" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_メーカー">
+            <EntityTypeMapping TypeName="SampleAppDBModel.M_メーカー">
+              <MappingFragment StoreEntitySet="M_メーカー">
+                <ScalarProperty Name="名称" ColumnName="名称" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_商品分類">
+            <EntityTypeMapping TypeName="SampleAppDBModel.M_商品分類">
+              <MappingFragment StoreEntitySet="M_商品分類">
+                <ScalarProperty Name="名称" ColumnName="名称" />
+                <ScalarProperty Name="コード" ColumnName="コード" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

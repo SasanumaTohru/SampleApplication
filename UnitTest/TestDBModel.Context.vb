@@ -23,5 +23,7 @@ Partial Public Class SampleAppDBEntities
     End Sub
 
     Public Overridable Property M_商品() As DbSet(Of M_商品)
+    Public Overridable Property M_メーカー() As DbSet(Of M_メーカー)
+    Public Overridable Property M_商品分類() As DbSet(Of M_商品分類)
 
 End Class

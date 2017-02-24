@@ -10,12 +10,8 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class M_商品
-    Public Property 商品ID As String
-    Public Property メーカー As Integer
-    Public Property 商品名 As String
-    Public Property 分類 As Integer
-    Public Property 仕入価格 As Decimal
-    Public Property 販売価格 As Decimal
+Partial Public Class M_メーカー
+    Public Property ID As Integer
+    Public Property 名称 As String
 
 End Class

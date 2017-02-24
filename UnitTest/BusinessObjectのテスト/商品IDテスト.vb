@@ -50,15 +50,15 @@
         Using TestDB As New SampleApplication.SampleAppDBEntities
 
             Const _商品ID As String = "999999"
-            Const _メーカー As Integer = メーカー.メーカーリスト.キヤノン
-            Const _分類 As Integer = 商品分類.分類リスト.カメラ
+            Const _メーカー As Integer = 3
+            Const _分類 As Integer = 4
             Const _商品 As String = "EOS-1n"
             Const _仕入価格 As Decimal = 270000D
             Const _販売価格 As Decimal = 300000D
 
-            Dim レコード = From 項目 In TestDB.M_商品 Where 項目.商品ID = _商品ID
+            Dim レコードセット = From レコード In TestDB.M_商品 Where レコード.商品ID = _商品ID
 
-            If レコード.Count = 0 Then
+            If レコードセット.Count = 0 Then
                 'Create
                 Dim 商品 As New SampleApplication.M_商品 With {
                     .商品ID = _商品ID,

@@ -4,7 +4,7 @@
         Private m_値 As String = String.Empty
 
         ''' <summary>
-        ''' コンストラクタ
+        ''' 生成用コンストラクタ
         ''' </summary>
         ''' <param name="値"></param>
         Public Sub New(値 As String)
@@ -16,9 +16,9 @@
             End If
 
             Using MyDB As New SampleApplication.SampleAppDBEntities
-                Dim レコード = From 項目 In MyDB.M_商品 Where 項目.商品ID = 値
+                Dim レコードセット = From レコード In MyDB.M_商品 Where レコード.商品ID = 値
 
-                If レコード.Count <> 0 Then
+                If レコードセット.Count <> 0 Then
                     Throw New Exception("この商品IDは既に使用されています。")
                 End If
             End Using

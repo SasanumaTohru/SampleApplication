@@ -75,12 +75,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObject\商品\メーカー.vb" />
+    <Compile Include="BusinessObject\商品\メーカーID.vb" />
     <Compile Include="BusinessObject\商品\価格変更予定表.vb" />
     <Compile Include="BusinessObject\商品\価格変更項目.vb" />
     <Compile Include="BusinessObject\商品\取扱商品.vb" />
     <Compile Include="BusinessObject\商品\商品.vb" />
     <Compile Include="BusinessObject\商品\商品分類.vb" />
     <Compile Include="BusinessObject\商品\商品ID.vb" />
+    <Compile Include="BusinessObject\商品\商品分類コード.vb" />
     <Compile Include="DataModel.Context.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -96,7 +98,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="M_メーカー.vb">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="M_商品.vb">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_商品分類.vb">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PrimitiveObject\名称.vb" />

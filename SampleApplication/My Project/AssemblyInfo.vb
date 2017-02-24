@@ -1,5 +1,4 @@
-﻿Imports System
-Imports System.Reflection
+﻿Imports System.Reflection
 Imports System.Runtime.InteropServices
 
 ' アセンブリに関する一般情報は以下の属性セットをとおして制御されます。
@@ -8,17 +7,17 @@ Imports System.Runtime.InteropServices
 
 ' アセンブリ属性の値を確認します
 
-<Assembly: AssemblyTitle("SampleApplication")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("SampleApplication")> 
-<Assembly: AssemblyCopyright("Copyright ©  2017")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyTitle("SampleApplication")>
+<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyProduct("SampleApplication")>
+<Assembly: AssemblyCopyright("Copyright ©  2017")>
+<Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 'このプロジェクトが COM に公開される場合、次の GUID が typelib の ID になります
-<Assembly: Guid("1d9c48e2-d138-4651-98ed-2bd3006694e0")> 
+<Assembly: Guid("1d9c48e2-d138-4651-98ed-2bd3006694e0")>
 
 ' アセンブリのバージョン情報は次の 4 つの値で構成されています:
 '
@@ -31,5 +30,5 @@ Imports System.Runtime.InteropServices
 ' 既定値にすることができます:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")> 
-<Assembly: AssemblyFileVersion("1.0.0.0")> 
+<Assembly: AssemblyVersion("1.0.0.0")>
+<Assembly: AssemblyFileVersion("1.0.0.0")>

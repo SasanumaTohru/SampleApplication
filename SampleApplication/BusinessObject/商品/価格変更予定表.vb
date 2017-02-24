@@ -40,9 +40,9 @@
         ''' <returns></returns>
         Public ReadOnly Property 項目(商品ID As 商品ID) As 価格変更項目
             Get
-                Dim rs = From o In m_List Where o.商品ID.値 = 商品ID.値
+                Dim レコードセット = From レコード In m_List Where レコード.商品ID.値 = 商品ID.値
 
-                Return rs.First
+                Return レコードセット.First
             End Get
         End Property
 
