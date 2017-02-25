@@ -20,7 +20,7 @@ Imports SampleApplication.PrimitiveObject
                       New 日付(#03/10/2017#))
 
         '価格変更予定表に価格変更項目を追加する
-        Dim 価格変更予定表 As New 価格変更予定表
+        Dim 価格変更予定表 As New 価格変更計画
         'メモ：価格変更リストを価格変更予定表に変更
         With 価格変更予定表
             .項目を追加する(価格変更項目1)

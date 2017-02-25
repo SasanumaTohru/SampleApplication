@@ -1,5 +1,5 @@
 ﻿Namespace BusinessObject.商品
-    Public Class 商品分類コード
+    Public Class 分類コード
 
         Private m_値 As Integer = 0
 

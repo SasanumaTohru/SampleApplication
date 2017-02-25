@@ -1,14 +1,14 @@
 ﻿Namespace BusinessObject.商品
-    Public Class 商品分類
+    Public Class 分類
 
-        Private m_コード As 商品分類コード
+        Private m_コード As 分類コード
         Private m_名称 As PrimitiveObject.名称
 
         ''' <summary>
         ''' コンストラクタ。分類リストから値を選択します。
         ''' </summary>
         ''' <param name="コード"></param>
-        Public Sub New(コード As 商品分類コード)
+        Public Sub New(コード As 分類コード)
             Using MyDB As New SampleAppDBEntities
                 Dim レコードセット = From レコード In MyDB.M_商品分類 Where レコード.コード = コード.値
 
@@ -22,7 +22,7 @@
         ''' IDプロパティ
         ''' </summary>
         ''' <returns></returns>
-        Public ReadOnly Property ID As 商品分類コード
+        Public ReadOnly Property ID As 分類コード
             Get
                 Return m_コード
             End Get

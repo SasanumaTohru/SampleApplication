@@ -1,5 +1,5 @@
 ﻿Namespace BusinessObject.商品
-    Public Class 価格変更予定表
+    Public Class 価格変更計画
 
         Inherits CollectionBase
 
