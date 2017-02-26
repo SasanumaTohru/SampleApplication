@@ -1,7 +1,7 @@
 ﻿Namespace BusinessObject.商品
     Public Class メーカーID
 
-        Private m_値 As Integer = 0
+        Private m_値 As Integer
 
         ''' <summary>
         ''' 参照用コンストラクタ

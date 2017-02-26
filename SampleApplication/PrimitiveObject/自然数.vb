@@ -1,10 +1,7 @@
 ﻿Namespace PrimitiveObject
     Public Class 自然数
 
-        ''' <summary>
-        ''' フィールド
-        ''' </summary>
-        Private m_値 As UInteger = 0
+        Private m_値 As UInteger
 
         ''' <summary>
         ''' コンストラクタ

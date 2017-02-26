@@ -1,7 +1,7 @@
 ﻿Namespace PrimitiveObject
     Public Class 金額
 
-        Private m_値 As Decimal = 0
+        Private m_値 As Decimal
 
         ''' <summary>
         ''' コンストラクタ

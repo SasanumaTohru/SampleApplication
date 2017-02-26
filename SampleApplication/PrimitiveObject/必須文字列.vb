@@ -1,7 +1,7 @@
 ﻿Namespace PrimitiveObject
     Public Class 必須文字列
 
-        Private m_値 As String = String.Empty
+        Private m_値 As String
 
         ''' <summary>
         ''' コンストラクタ　スペースのみの文字列と文字列0は許可しません。文字の先頭と末尾のスペースは許可します。

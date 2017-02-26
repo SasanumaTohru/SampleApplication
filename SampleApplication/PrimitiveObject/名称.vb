@@ -1,7 +1,7 @@
 ﻿Namespace PrimitiveObject
     Public Class 名称
 
-        Private m_値 As String = String.Empty
+        Private m_値 As String
 
         ''' <summary>
         ''' コンストラクタ

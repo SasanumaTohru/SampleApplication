@@ -1,7 +1,7 @@
 ﻿Namespace BusinessObject.商品
     Public Class 分類コード
 
-        Private m_値 As Integer = 0
+        Private m_値 As Integer
 
         ''' <summary>
         ''' 参照用コンストラクタ
@@ -9,9 +9,9 @@
         ''' <param name="値"></param>
         Public Sub New(値 As Integer)
             Using MyDB As New SampleAppDBEntities
-                Dim rs = From o In MyDB.M_商品分類 Where o.コード = 値
+                Dim レコードセット = From レコード In MyDB.M_商品分類 Where レコード.コード = 値
 
-                If rs.Count <> 1 Then
+                If レコードセット.Count <> 1 Then
                     Throw New Exception("指定された商品分類コードは存在しません。")
                 End If
 
