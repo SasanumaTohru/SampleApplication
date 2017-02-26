@@ -3,7 +3,7 @@ Imports SampleApplication.PrimitiveObject
 
 <TestClass()> Public Class 価格変更項目クラステスト
 
-    <TestMethod()> Public Sub 価格変更項目クラスの基本テスト()
+    <TestMethod()> <TestCategory("基本テスト")> Public Sub 価格変更項目クラスの基本テスト()
         '生成
         Dim 変更項目1 As New 価格変更項目(New 商品ID("123456"),
                               価格変更項目.価格区分リスト.仕入,
@@ -23,7 +23,7 @@ Imports SampleApplication.PrimitiveObject
         Assert.AreEqual(Date.Today.AddDays(1), 変更項目1.適用開始日.値)
     End Sub
 
-    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub 価格変更項目クラス例外処理1()
+    <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 価格変更項目クラス例外処理1()
         '価格区分は「価格変更項目クラス.価格区分リスト」から選択する。
         Dim 変更項目1 As New 価格変更項目(New 商品ID("123456"),
                               0,
@@ -32,7 +32,7 @@ Imports SampleApplication.PrimitiveObject
                               New 日付(Date.Today.AddDays(1)))
     End Sub
 
-    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub 価格変更項目クラス例外処理2()
+    <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 価格変更項目クラス例外処理2()
         '価格区分は「価格変更項目クラス.価格区分リスト」から選択する。
         Dim 変更項目1 As New 価格変更項目(New 商品ID("123456"),
                               3,
@@ -41,7 +41,7 @@ Imports SampleApplication.PrimitiveObject
                               New 日付(Date.Today.AddDays(1)))
     End Sub
 
-    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub 価格変更項目クラス例外処理3()
+    <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 価格変更項目クラス例外処理3()
         '摘要開始日は明日以降の日付が必要。
         Dim 変更項目1 As New 価格変更項目(New 商品ID("123456"),
                                 価格変更項目.価格区分リスト.販売,

@@ -2,7 +2,7 @@
 
 <TestClass()> Public Class メーカークラステスト
 
-    <TestMethod()> Public Sub メーカークラスの基本テスト()
+    <TestMethod()> <TestCategory("基本テスト")> Public Sub メーカークラスの基本テスト()
 
         'インスタンスの生成と値の参照
         Dim 製造元 As New メーカー(New メーカーID(3))

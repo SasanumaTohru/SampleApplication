@@ -19,7 +19,7 @@ Imports SampleApplication.BusinessObject.商品
     Private Const S2仕入価格 As Decimal = 18000D
     Private Const S2販売価格 As Decimal = 21000D
 
-    <TestMethod()> Public Sub 商品クラス基本テスト()
+    <TestMethod()> <TestCategory("基本テスト")> Public Sub 商品クラス基本テスト()
 
         'ユースケース：新しい商品を登録する
         '商品クラスは完全コンストラクタ。

@@ -2,7 +2,7 @@
 
 <TestClass()> Public Class 日付クラスのテスト
 
-    <TestMethod()> Public Sub 日付クラス基本テスト()
+    <TestMethod()> <TestCategory("基本テスト")> Public Sub 日付クラス基本テスト()
 
         'インスタンスの生成時に日付をセットする。
         Dim 誕生日 As New 日付(#5/25/2017#)

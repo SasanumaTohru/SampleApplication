@@ -1,6 +1,6 @@
 ﻿<TestClass()> Public Class 自然数クラスのテスト
 
-    <TestMethod()> Public Sub 自然数クラス基本テスト()
+    <TestMethod()> <TestCategory("基本テスト")> Public Sub 自然数クラス基本テスト()
 
         '自然数クラスは、０と正の整数とする。
         '自然数クラスは、数量を表す場合などに使用する。

@@ -2,7 +2,7 @@
 
 <TestClass()> Public Class 商品IDテスト
 
-    <TestMethod()> Public Sub 商品IDの基本テスト()
+    <TestMethod()> <TestCategory("基本テスト")> Public Sub 商品IDの基本テスト()
 
         Const ID As String = "000000"
         Dim 商品ID As New 商品ID(ID)
@@ -11,31 +11,31 @@
     End Sub
 
     '6桁の半角数字以外は使用できない。
-    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub 商品IDクラス例外処理1()
+    <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 商品IDクラス例外処理1()
         Dim 商品ID As New 商品ID("")
     End Sub
 
-    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub 商品IDクラス例外処理2()
+    <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 商品IDクラス例外処理2()
         Dim 商品ID As New 商品ID("1234567")
     End Sub
 
-    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub 商品IDクラス例外処理2a()
+    <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 商品IDクラス例外処理2a()
         Dim 商品ID As New 商品ID("123-45")
     End Sub
 
-    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub 商品IDクラス例外処理3()
+    <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 商品IDクラス例外処理3()
         Dim 商品ID As New 商品ID("123")
     End Sub
 
-    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub 商品IDクラス例外処理4()
+    <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 商品IDクラス例外処理4()
         Dim 商品ID As New 商品ID("１２３４５６")
     End Sub
 
-    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub 商品IDクラス例外処理5()
+    <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 商品IDクラス例外処理5()
         Dim 商品ID As New 商品ID("abcdef")
     End Sub
 
-    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub 商品IDの重複は例外()
+    <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 商品IDの重複は例外()
         '指定したキーがすでに存在する場合は例外とする。
         テストデータの確認()
         '重複したキーでの生成は例外になる。

@@ -2,18 +2,18 @@
 
 <TestClass()> Public Class メーカーIDテスト
 
-    <TestMethod()> Public Sub メーカーIDクラス基本テスト()
+    <TestMethod()> <TestCategory("基本テスト")> Public Sub メーカーIDクラス基本テスト()
         'メーカーIDは、1から始まる連番で採番される。メーカーIDは不変であり、削除されることもない。
         Dim メーカーID As New メーカーID(3)
         Assert.AreEqual(3, メーカーID.値)
     End Sub
 
-    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub メーカークラス例外処理1()
+    <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub メーカークラス例外処理1()
         '登録のないIDは例外。
         Dim メーカーID As New メーカーID(0)
     End Sub
 
-    <TestMethod()> <ExpectedException(GetType(Exception))> Public Sub メーカークラス例外処理2()
+    <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub メーカークラス例外処理2()
         '登録のないIDは例外。
         Dim メーカーID As New メーカーID(メーカーIDの最大値を取得する() + 1)
     End Sub

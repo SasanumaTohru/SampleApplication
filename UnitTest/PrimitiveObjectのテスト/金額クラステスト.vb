@@ -4,7 +4,7 @@
 
     Private Const テスト値1 As Decimal = 123456789D
 
-    <TestMethod()> Public Sub 金額クラス基本テスト()
+    <TestMethod()> <TestCategory("基本テスト")> Public Sub 金額クラス基本テスト()
 
         'インスタンスの生成時に値を設定する。
         Dim 金額 As New 金額(テスト値1)

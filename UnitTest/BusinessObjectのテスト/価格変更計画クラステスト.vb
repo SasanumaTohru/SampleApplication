@@ -3,7 +3,7 @@ Imports SampleApplication.PrimitiveObject
 
 <TestClass()> Public Class 価格変更計画クラステスト
 
-    <TestMethod()> Public Sub 価格変更リスト基本テスト()
+    <TestMethod()> <TestCategory("基本テスト")> Public Sub 価格変更リスト基本テスト()
         '価格変更項目の作成
         Dim 商品ID1 As 商品ID = New 商品ID("123456")
         Dim 価格変更項目1 As New 価格変更項目(商品ID1,
