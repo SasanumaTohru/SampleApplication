@@ -21,20 +21,36 @@
         ''' <param name="変更後価格"></param>
         ''' <param name="適用開始日"></param>
         Public Sub New(商品ID As 商品ID,
-                       価格区分 As 価格区分リスト,
-                       現行価格 As PrimitiveObject.金額,
-                       変更後価格 As PrimitiveObject.金額,
+                       価格区分 As 価格区分リスト, 現行価格 As PrimitiveObject.金額, 変更後価格 As PrimitiveObject.金額,
                        適用開始日 As PrimitiveObject.日付)
-            'バリデーション
-            If 価格区分 < 価格区分リスト.仕入 Or 価格区分 > 価格区分リスト.販売 Then
-                Throw New Exception("価格区分が正しくありません。")
-            End If
-            '本処理
+            価格区分が正しい(価格区分)
+            摘要開始日が明日以降である(適用開始日)
             m_商品ID = 商品ID
             m_価格区分 = 価格区分
             m_現行価格 = 現行価格
             m_変更後価格 = 変更後価格
             m_適用開始日 = 適用開始日
+        End Sub
+
+        ''' <summary>
+        ''' 価格区分が正しいメソッド
+        ''' </summary>
+        ''' <param name="価格区分"></param>
+        Private Sub 価格区分が正しい(価格区分 As 価格区分リスト)
+            If 価格区分 < 価格区分リスト.仕入 Or 価格区分 > 価格区分リスト.販売 Then
+                Throw New Exception("価格区分が正しくありません。")
+            End If
+        End Sub
+
+        ''' <summary>
+        ''' 摘要開始日が明日以降であるメソッド
+        ''' </summary>
+        ''' <param name="摘要開始日"></param>
+        Private Sub 摘要開始日が明日以降である(摘要開始日 As PrimitiveObject.日付)
+            Dim 設定できる日付 As New PrimitiveObject.日付(Date.Today.AddDays(1))
+            If 摘要開始日.値 < 設定できる日付.値 Then
+                Throw New Exception("摘要開始日には明日以降の日付が必要です。")
+            End If
         End Sub
 
         ''' <summary>

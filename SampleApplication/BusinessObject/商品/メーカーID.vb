@@ -6,17 +6,23 @@
         ''' <summary>
         ''' 参照用コンストラクタ
         ''' </summary>
+        ''' <param name="値"></param>
+        Public Sub New(値 As Integer)
+            IDが存在する(値)
+            m_値 = 値
+        End Sub
+
+        ''' <summary>
+        ''' IDの存在を確認するメソッド
+        ''' </summary>
         ''' <param name="ID"></param>
-        Public Sub New(ID As Integer)
+        Private Sub IDが存在する(ID As Integer)
             Using MyDB As New SampleAppDBEntities
                 Dim レコードセット = From レコード In MyDB.M_メーカー Where レコード.ID = ID
 
-                'バリデーション
                 If レコードセット.Count <> 1 Then
                     Throw New Exception("指定されたメーカーは存在しません。")
                 End If
-                '本処理
-                m_値 = ID
             End Using
         End Sub
 
