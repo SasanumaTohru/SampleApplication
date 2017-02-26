@@ -9,14 +9,22 @@
         ''' </summary>
         ''' <param name="コード"></param>
         Public Sub New(コード As 分類コード)
+            m_コード = コード
+            m_名称 = 分類名を取得する(コード)
+        End Sub
+
+        ''' <summary>
+        ''' 分類名を取得するメソッド
+        ''' </summary>
+        ''' <param name="コード"></param>
+        ''' <returns></returns>
+        Private Function 分類名を取得する(コード As 分類コード) As PrimitiveObject.名称
             Using MyDB As New SampleAppDBEntities
                 Dim レコードセット = From レコード In MyDB.M_商品分類 Where レコード.コード = コード.値
 
-                '本処理
-                m_コード = コード
-                m_名称 = New PrimitiveObject.名称(レコードセット.First.名称)
+                Return New PrimitiveObject.名称(レコードセット.First.名称)
             End Using
-        End Sub
+        End Function
 
         ''' <summary>
         ''' IDプロパティ

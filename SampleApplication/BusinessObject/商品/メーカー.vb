@@ -9,13 +9,22 @@
         ''' </summary>
         ''' <param name="ID"></param>
         Public Sub New（ID As メーカーID)
+            m_ID = ID
+            m_名称 = メーカー名を取得する(ID)
+        End Sub
+
+        ''' <summary>
+        ''' メーカー名を取得するメソッド
+        ''' </summary>
+        ''' <param name="ID"></param>
+        ''' <returns></returns>
+        Private Function メーカー名を取得する(ID As メーカーID) As PrimitiveObject.名称
             Using MyDB As New SampleAppDBEntities
                 Dim レコードセット = From レコード In MyDB.M_メーカー Where レコード.ID = ID.値
 
-                m_ID = ID
-                m_名称 = New PrimitiveObject.名称(レコードセット.First.名称)
+                Return New PrimitiveObject.名称(レコードセット.First.名称)
             End Using
-        End Sub
+        End Function
 
         ''' <summary>
         ''' IDプロパティ
