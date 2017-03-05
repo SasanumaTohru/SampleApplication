@@ -8,9 +8,10 @@
         '例）在庫-5個　→　在庫不足5個
 
         Dim 数量1 As New SampleApplication.PrimitiveObject.自然数(0)
+        Dim 数量2 As New SampleApplication.PrimitiveObject.自然数(4294967295)
+        Dim 数量3 As New SampleApplication.PrimitiveObject.自然数(2147483647)
         Assert.AreEqual(0UI, 数量1.値)
-        Dim 数量2 As New SampleApplication.PrimitiveObject.自然数(1)
-        Assert.AreEqual(1UI, 数量2.値)
+        Assert.AreEqual(4294967295UI, 数量2.値)
 
     End Sub
 

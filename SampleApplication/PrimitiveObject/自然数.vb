@@ -4,7 +4,7 @@
         Private m_値 As UInteger
 
         ''' <summary>
-        ''' コンストラクタ
+        ''' 自然数クラスは０と正の整数（UInteger型）とし、数量などを表す場合に使用する。
         ''' </summary>
         ''' <param name="値"></param>
         Public Sub New(値 As UInteger)

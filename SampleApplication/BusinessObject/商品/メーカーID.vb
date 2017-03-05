@@ -3,6 +3,7 @@
 
         Private m_値 As Integer
 
+
         ''' <summary>
         ''' 参照用コンストラクタ
         ''' </summary>

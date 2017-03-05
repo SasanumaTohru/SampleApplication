@@ -10,14 +10,14 @@ Imports SampleApplication.PrimitiveObject
                       価格変更項目.価格区分リスト.仕入,
                       New 金額(90000D),
                       New 金額(89800D),
-                      New 日付(#03/01/2017#))
+                      New 日付("#4/1/2020#"))
 
         Dim 商品ID2 As 商品ID = New 商品ID("555555")
         Dim 価格変更項目2 As New 価格変更項目(商品ID2,
                       価格変更項目.価格区分リスト.販売,
                       New 金額(29800D),
                       New 金額(26000D),
-                      New 日付(#03/10/2017#))
+                      New 日付("#4/1/2020#"))
 
         '価格変更計画に価格変更項目を追加する
         Dim 価格変更計画 As New 価格変更計画
@@ -35,9 +35,9 @@ Imports SampleApplication.PrimitiveObject
         For Each 項目 As 価格変更項目 In 価格変更計画.項目リスト
             Select Case 項目.商品ID.値
                 Case 商品ID1.値
-                    Assert.AreEqual("2017年3月1日", 項目.適用開始日.西暦年月日文字列())
+                    Assert.AreEqual("2020年4月1日", 項目.適用開始日.西暦年月日文字列())
                 Case 商品ID2.値
-                    Assert.AreEqual("平成29年3月10日(金)", 項目.適用開始日.和暦年月日文字列(日付.曜日表示.あり))
+                    Assert.AreEqual("平成32年4月1日(水)", 項目.適用開始日.和暦年月日文字列(日付.曜日表示.あり))
             End Select
         Next
 

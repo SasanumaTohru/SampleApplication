@@ -27,7 +27,7 @@
         ''' 項目リストプロパティ
         ''' </summary>
         ''' <returns></returns>
-        Public ReadOnly Property 項目リスト As IList
+        Public ReadOnly Property 項目リスト As List(Of 価格変更項目)
             Get
                 Return m_List
             End Get
