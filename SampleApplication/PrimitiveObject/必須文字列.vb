@@ -8,12 +8,18 @@
         ''' </summary>
         ''' <param name="値">文字列を設定します。</param>
         Public Sub New(値 As String)
-            'バリデーション
+            値は正しい(値)
+            m_値 = 値
+        End Sub
+
+        ''' <summary>
+        ''' コンストラクタのパラメータチェック
+        ''' </summary>
+        ''' <param name="値"></param>
+        Private Sub 値は正しい(値 As String)
             If Trim(値) = String.Empty Then
                 Throw New Exception("文字が入力されていません。")
             End If
-            '本処理
-            m_値 = 値
         End Sub
 
         ''' <summary>

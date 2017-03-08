@@ -8,15 +8,20 @@
         ''' </summary>
         ''' <param name="値">名称となる文字列を設定します。</param>
         Public Sub New(値 As String)
-            'スペースの除去
-            Dim _値 As String = Trim(値)
-            'バリデーション
-            If _値 = String.Empty Then
-                Throw New Exception("入力された文字が不正です。")
-            End If
-            '本処理
+            Dim _値 As String = 先頭末尾のスペースを除去する(値)
+            スペース以外の文字が含まれている(_値)
             m_値 = _値
         End Sub
+
+        Private Sub スペース以外の文字が含まれている(値 As String)
+            If 値 = String.Empty Then
+                Throw New Exception("入力された文字が不正です。")
+            End If
+        End Sub
+
+        Private Function 先頭末尾のスペースを除去する(値 As String) As String
+            Return Trim(値)
+        End Function
 
         ''' <summary>
         ''' 値プロパティ
