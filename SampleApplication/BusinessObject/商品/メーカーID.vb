@@ -3,18 +3,17 @@
 
         Private m_値 As Integer
 
-
         ''' <summary>
         ''' 参照用コンストラクタ
         ''' </summary>
-        ''' <param name="値"></param>
+        ''' <param name="値">メーカーID</param>
         Public Sub New(値 As Integer)
             IDが存在する(値)
             m_値 = 値
         End Sub
 
         ''' <summary>
-        ''' IDの存在を確認するメソッド
+        ''' IDが永続化されていることを確認します。
         ''' </summary>
         ''' <param name="ID"></param>
         Private Sub IDが存在する(ID As Integer)
