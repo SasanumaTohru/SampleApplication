@@ -5,9 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a175882882864c30b4b4a6dc0596d549" Name="Diagram1">
-        <EntityTypeShape EntityType="TestDBModel.M_商品" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="TestDBModel.M_メーカー" Width="1.5" PointX="3.375" PointY="0.75" />
         <EntityTypeShape EntityType="TestDBModel.M_商品分類" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="TestDBModel.M_商品" Width="1.5" PointX="3.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

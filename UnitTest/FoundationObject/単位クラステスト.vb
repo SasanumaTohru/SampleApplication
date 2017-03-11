@@ -12,7 +12,7 @@
         Assert.AreEqual(5UI, 単位.ID.値)
         '単位リストの最大最小値を取得するためのSharedプロパティ。
         Assert.AreEqual(1, 単位.単位リストの最小値)
-        Assert.AreEqual(5, 単位.単位リストの最大値)
+        Assert.AreEqual(6, 単位.単位リストの最大値)
 
     End Sub
 

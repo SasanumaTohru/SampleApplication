@@ -15,6 +15,7 @@ Partial Public Class M_商品
     Public Property メーカー As Integer
     Public Property 商品名 As String
     Public Property 分類 As Integer
+    Public Property 単位 As Integer
     Public Property 仕入価格 As Decimal
     Public Property 販売価格 As Decimal
 

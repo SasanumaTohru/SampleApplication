@@ -39,20 +39,21 @@
         '指定したキーがすでに存在する場合は例外とする。
         テストデータの確認()
         '重複したキーでの生成は例外になる。
-        Dim 商品ID As New 商品ID("999999")
+        Dim 商品ID As New 商品ID("999999", 商品ID.コンストラクタオプション.生成)
     End Sub
 
     ''' <summary>
     ''' テストデータの確認メソッド
     ''' </summary>
-    Private Shared Sub テストデータの確認()
+    Private Sub テストデータの確認()
         '参照をSampleApplicationにすることで名前解決する。
         Using TestDB As New SampleApplication.SampleAppDBEntities
 
             Const _商品ID As String = "999999"
             Const _メーカー As Integer = 3
             Const _分類 As Integer = 4
-            Const _商品 As String = "EOS-1n"
+            Const _商品 As String = "アナログ一眼レフカメラ"
+            Const _単位 As Integer = 4
             Const _仕入価格 As Decimal = 270000D
             Const _販売価格 As Decimal = 300000D
 
@@ -65,6 +66,7 @@
                     .メーカー = _メーカー,
                     .分類 = _分類,
                     .商品名 = _商品,
+                    .単位 = _単位,
                     .仕入価格 = _仕入価格,
                     .販売価格 = _販売価格
                 }

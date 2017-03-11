@@ -10,6 +10,7 @@
             本 = 3
             台 = 4
             式 = 5
+            ケース = 6
         End Enum
 
         Private m_値 As 単位リスト

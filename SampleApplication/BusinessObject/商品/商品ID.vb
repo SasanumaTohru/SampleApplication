@@ -3,13 +3,20 @@
 
         Private m_値 As String
 
+        Public Enum コンストラクタオプション As Integer
+            参照 = 1
+            生成 = 2
+        End Enum
+
         ''' <summary>
-        ''' 生成用コンストラクタ
+        ''' 参照用コンストラクタ
         ''' </summary>
         ''' <param name="値">商品IDは6桁の半角数字を使用する。</param>
-        Public Sub New(値 As String)
+        Public Sub New(値 As String, Optional 用途 As コンストラクタオプション = コンストラクタオプション.参照)
             値の表現形式が正しい(値)
-            値が使用できる(値)
+            If 用途 = コンストラクタオプション.生成 Then
+                値が使用できる(値)
+            End If
             m_値 = 値
         End Sub
 
