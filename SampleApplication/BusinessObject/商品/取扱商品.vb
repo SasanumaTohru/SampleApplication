@@ -22,6 +22,21 @@
         ''' </summary>
         ''' <param name="商品"></param>
         Public Sub 追加する(商品 As 商品)
+            'データの永続化
+            Using MyDB As New SampleAppDBEntities
+                Dim 追加する商品 As New M_商品 With {
+                    .商品ID = 商品.商品ID.値,
+                    .メーカー = 商品.メーカー.ID.値,
+                    .商品名 = 商品.名称.値,
+                    .分類 = 商品.分類.ID.値,
+                    .単位 = CType(商品.単位.ID.値, Integer),
+                    .仕入価格 = 商品.仕入価格.値,
+                    .販売価格 = 商品.販売価格.値
+                    }
+                MyDB.M_商品.Add(追加する商品)
+                MyDB.SaveChanges()
+            End Using
+            'リストへの追加
             m_List.Add(商品)
         End Sub
 

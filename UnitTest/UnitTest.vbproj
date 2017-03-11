@@ -93,15 +93,15 @@
     <Import Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessObjectのテスト\取扱商品テスト.vb" />
-    <Compile Include="BusinessObjectのテスト\商品分類コードテスト.vb" />
-    <Compile Include="BusinessObjectのテスト\メーカーIDテスト.vb" />
-    <Compile Include="BusinessObjectのテスト\価格変更計画クラステスト.vb" />
-    <Compile Include="BusinessObjectのテスト\価格変更項目クラステスト.vb" />
-    <Compile Include="BusinessObjectのテスト\商品IDテスト.vb" />
-    <Compile Include="BusinessObjectのテスト\メーカークラステスト.vb" />
-    <Compile Include="BusinessObjectのテスト\商品分類テスト.vb" />
-    <Compile Include="BusinessObjectのテスト\商品クラステスト.vb" />
+    <Compile Include="BusinessObject\取扱商品テスト.vb" />
+    <Compile Include="BusinessObject\商品分類コードテスト.vb" />
+    <Compile Include="BusinessObject\メーカーIDテスト.vb" />
+    <Compile Include="BusinessObject\価格変更計画クラステスト.vb" />
+    <Compile Include="BusinessObject\価格変更項目クラステスト.vb" />
+    <Compile Include="BusinessObject\商品IDテスト.vb" />
+    <Compile Include="BusinessObject\メーカークラステスト.vb" />
+    <Compile Include="BusinessObject\商品分類テスト.vb" />
+    <Compile Include="BusinessObject\商品クラステスト.vb" />
     <Compile Include="FoundationObject\単位クラステスト.vb" />
     <Compile Include="M_メーカー.vb">
       <DependentUpon>TestDBModel.tt</DependentUpon>
@@ -112,6 +112,7 @@
     <Compile Include="M_商品分類.vb">
       <DependentUpon>TestDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="TestDataSetup\TestDataSetup.vb" />
     <Compile Include="TestDBModel.Context.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -127,11 +128,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TestDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PrimitiveObjectのテスト\日付クラスのテスト.vb" />
-    <Compile Include="PrimitiveObjectのテスト\自然数クラスのテスト.vb" />
-    <Compile Include="PrimitiveObjectのテスト\金額クラステスト.vb" />
-    <Compile Include="PrimitiveObjectのテスト\必須文字列クラステスト.vb" />
-    <Compile Include="PrimitiveObjectのテスト\名称クラステスト.vb" />
+    <Compile Include="PrimitiveObject\日付クラスのテスト.vb" />
+    <Compile Include="PrimitiveObject\自然数クラスのテスト.vb" />
+    <Compile Include="PrimitiveObject\金額クラステスト.vb" />
+    <Compile Include="PrimitiveObject\必須文字列クラステスト.vb" />
+    <Compile Include="PrimitiveObject\名称クラステスト.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -186,6 +187,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TestDataSetup\商品セットアップ.sql" />
     <Content Include="TestDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TestDBModel.edmx</DependentUpon>
@@ -197,6 +199,7 @@
       <LastGenOutput>TestDBModel.vb</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

@@ -27,7 +27,7 @@
         'メーカープロパティは、メーカークラスのメーカーリストから選択する。
         '分類プロパティは、商品分類クラスの分類リストから選択する。
         Dim 新しい商品 As New BusinessObject.商品.商品(
-            New BusinessObject.商品.商品ID(m_S1商品ID),
+            New BusinessObject.商品.商品ID(m_S1商品ID, BusinessObject.商品.商品ID.コンストラクタオプション.生成),
             New BusinessObject.商品.メーカー(New BusinessObject.商品.メーカーID(2)),
             New PrimitiveObject.名称(m_S1名称),
             New BusinessObject.商品.分類(New BusinessObject.商品.分類コード(3)),

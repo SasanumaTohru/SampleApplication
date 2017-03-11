@@ -5,14 +5,14 @@ Imports SampleApplication.PrimitiveObject
 
     <TestMethod()> <TestCategory("基本テスト")> Public Sub 価格変更リスト基本テスト()
         '価格変更項目の作成
-        Dim 商品ID1 As 商品ID = New 商品ID("123456")
+        Dim 商品ID1 As 商品ID = New 商品ID("123456", 商品ID.コンストラクタオプション.生成)
         Dim 価格変更項目1 As New 価格変更項目(商品ID1,
                       価格変更項目.価格区分リスト.仕入,
                       New 金額(90000D),
                       New 金額(89800D),
                       New 日付("#4/1/2020#"))
 
-        Dim 商品ID2 As 商品ID = New 商品ID("555555")
+        Dim 商品ID2 As 商品ID = New 商品ID("555555", 商品ID.コンストラクタオプション.生成)
         Dim 価格変更項目2 As New 価格変更項目(商品ID2,
                       価格変更項目.価格区分リスト.販売,
                       New 金額(29800D),

@@ -14,9 +14,16 @@
         ''' <param name="値">商品IDは6桁の半角数字を使用する。</param>
         Public Sub New(値 As String, Optional 用途 As コンストラクタオプション = コンストラクタオプション.参照)
             値の表現形式が正しい(値)
-            If 用途 = コンストラクタオプション.生成 Then
-                値が使用できる(値)
-            End If
+            Select Case 用途
+                Case コンストラクタオプション.参照
+                    If 商品IDは存在する(値) = False Then
+                        Throw New Exception("この商品IDは存在していません。")
+                    End If
+                Case コンストラクタオプション.生成
+                    If 商品IDは存在する(値) Then
+                        Throw New Exception("この商品IDは既に使用されています。")
+                    End If
+            End Select
             m_値 = 値
         End Sub
 
@@ -30,19 +37,20 @@
             End If
         End Sub
 
-        ''' <summary>
-        ''' 値が使用できるメソッド
-        ''' </summary>
-        ''' <param name="値"></param>
-        Private Sub 値が使用できる(値 As String)
+        Private Function 商品IDは存在する(商品ID As String) As Boolean
+            Dim レスポンス As Boolean
             Using MyDB As New SampleApplication.SampleAppDBEntities
-                Dim レコードセット = From レコード In MyDB.M_商品 Where レコード.商品ID = 値
+                Dim レコードセット = From レコード In MyDB.M_商品 Where レコード.商品ID = 商品ID
 
-                If レコードセット.Count <> 0 Then
-                    Throw New Exception("この商品IDは既に使用されています。")
-                End If
+                Select Case レコードセット.Count
+                    Case 1
+                        レスポンス = True
+                    Case Else
+                        レスポンス = False
+                End Select
             End Using
-        End Sub
+            Return レスポンス
+        End Function
 
         ''' <summary>
         ''' 値プロパティ
