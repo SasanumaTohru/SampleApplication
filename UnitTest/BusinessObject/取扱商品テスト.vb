@@ -41,7 +41,7 @@ Imports SampleApplication.PrimitiveObject
         '特定商品へのアクセス
         Assert.AreEqual("カメラ", 取扱商品.商品(New 商品ID(商品1のID)).名称.値)
         '全取扱商品の参照
-        For Each 商品 In 取扱商品.一覧
+        For Each 商品 In 取扱商品.リスト
             Debug.Print(商品.商品ID.値)
             Debug.Print(商品.メーカー.ID.値)
             Debug.Print(商品.メーカー.名称.値)

@@ -1,16 +1,17 @@
 ﻿Namespace PrimitiveObject
     Public Class 名称
 
+        'フィールド
         Private m_値 As String
 
         ''' <summary>
-        ''' コンストラクタ
+        ''' 文字列の先頭と末尾にスペースがあれば除去し、Emptyには例外を発生させます。
         ''' </summary>
         ''' <param name="値">名称となる文字列を設定します。</param>
         Public Sub New(値 As String)
-            Dim _値 As String = 先頭末尾のスペースを除去する(値)
-            名称となり得る文字が含まれている(_値)
-            m_値 = _値
+            Dim 検証文字列 As String = 先頭末尾のスペースを除去する(値)
+            名称となり得る文字が含まれている(検証文字列)
+            m_値 = 検証文字列
         End Sub
 
         ''' <summary>
@@ -33,7 +34,7 @@
         End Function
 
         ''' <summary>
-        ''' 値プロパティ
+        ''' 名称を返します。
         ''' </summary>
         ''' <returns></returns>
         Public ReadOnly Property 値 As String

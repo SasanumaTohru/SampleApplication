@@ -10,7 +10,22 @@
         ''' </summary>
         ''' <param name="項目"></param>
         Public Sub 項目を追加する(項目 As 価格変更項目)
+            項目は一意である(項目)
             m_List.Add(項目)
+        End Sub
+
+        ''' <summary>
+        ''' 追加する項目が一意であることをチェックします。
+        ''' </summary>
+        ''' <param name="項目"></param>
+        Private Sub 項目は一意である(項目 As 価格変更項目)
+            Dim レコードセット = From レコード In m_List
+                          Where レコード.商品ID.値 = 項目.商品ID.値 And レコード.価格区分 = 項目.価格区分 And レコード.適用開始日.値 = 項目.適用開始日.値
+
+            If レコードセット.Count = 1 Then
+                Throw New Exception("商品ID、価格区分、適用開始日が重複するため登録できません。" &
+                                    "{ " & 項目.商品ID.値 & " , " & 項目.価格区分.ToString & " , " & 項目.適用開始日.西暦年月日文字列 & " }")
+            End If
         End Sub
 
         ''' <summary>
@@ -38,9 +53,10 @@
         ''' </summary>
         ''' <param name="商品ID"></param>
         ''' <returns></returns>
-        Public ReadOnly Property 項目(商品ID As 商品ID) As 価格変更項目
+        Public ReadOnly Property 項目(商品ID As 商品ID, 価格区分 As 価格変更項目.価格区分リスト) As 価格変更項目
             Get
-                Dim レコードセット = From レコード In m_List Where レコード.商品ID.値 = 商品ID.値
+                Dim レコードセット = From レコード In m_List
+                              Where レコード.商品ID.値 = 商品ID.値 And レコード.価格区分 = 価格区分
 
                 Return レコードセット.First
             End Get

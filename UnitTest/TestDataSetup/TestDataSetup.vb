@@ -3,12 +3,21 @@
     Inherits CollectionBase
     Dim m_List As New List(Of String)
 
-    Private Const m_DB接続文字列 As String = "Data Source = DESKTOP-J04U41C\SQLEXPRESS;Initial Catalog = SampleAppDB;Integrated Security = SSPI;"
+    Private Const m_DataSource As String = "Data Source = DESKTOP-J04U41C\SQLEXPRESS;"
+    Private Const m_InitialCatalog As String = "Initial Catalog = SampleAppDB;"
+    Private Const m_IntegratedSecurity As String = "Integrated Security = SSPI;"
+    Private Const m_DB接続文字列 As String = m_DataSource & m_InitialCatalog & m_IntegratedSecurity
 
-    <TestMethod> <TestCategory("テストデータ作成")> Sub テスト商品データの作成()
-        SQLを実行する("SELECT * FROM M_商品;")
+    <TestMethod> <TestCategory("テストデータ作成")> Public Sub テスト商品データの作成()
+        SQLを実行する("INSERT INTO [dbo].[M_商品] ([商品ID], [メーカー], [商品名], [分類], [単位], [仕入価格], [販売価格])
+                               VALUES (N'999990', 11, N'A4コピー用紙', 8, 6, CAST(980.0000 AS Money), CAST(1100.0000 AS Money));")
+        指定した商品IDが存在する場合には削除する("999990")
     End Sub
 
+    ''' <summary>
+    ''' SQLを実行する汎用メソッド
+    ''' </summary>
+    ''' <param name="SQL文"></param>
     Public Shared Sub SQLを実行する(SQL文 As String)
         'データベースに接続
         Dim DB接続 As New System.Data.SqlClient.SqlConnection(m_DB接続文字列)

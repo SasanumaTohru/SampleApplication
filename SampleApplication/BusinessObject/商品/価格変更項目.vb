@@ -1,11 +1,14 @@
 ﻿Namespace BusinessObject.商品
+    ''' <summary>
+    ''' 商品ID、価格区分、適用開始日で一意となる。
+    ''' </summary>
     Public Class 価格変更項目
 
         Private m_商品ID As 商品ID
         Private m_価格区分 As 価格区分リスト
+        Private m_適用開始日 As PrimitiveObject.日付
         Private m_現行価格 As PrimitiveObject.金額
         Private m_変更後価格 As PrimitiveObject.金額
-        Private m_適用開始日 As PrimitiveObject.日付
 
         Public Enum 価格区分リスト As Integer
             仕入 = 1
@@ -37,10 +40,28 @@
         ''' </summary>
         ''' <param name="価格区分"></param>
         Private Sub 価格区分が正しい(価格区分 As 価格区分リスト)
-            If 価格区分 < 価格区分リスト.仕入 Or 価格区分 > 価格区分リスト.販売 Then
+            If 価格区分 < 価格区分リストの最小値 Or 価格区分 > 価格区分リストの最大値 Then
                 Throw New Exception("価格区分が正しくありません。")
             End If
         End Sub
+
+        Private Shared Function 価格区分リストの数列を取得する() As Integer()
+            Dim 配列 As Array = [Enum].GetValues(GetType(価格区分リスト))
+            Dim 数列 As Integer() = CType(配列, Integer())
+            Return 数列
+        End Function
+
+        Public Shared ReadOnly Property 価格区分リストの最小値 As Integer
+            Get
+                Return 価格区分リストの数列を取得する.Min
+            End Get
+        End Property
+
+        Public Shared ReadOnly Property 価格区分リストの最大値 As Integer
+            Get
+                Return 価格区分リストの数列を取得する.Max
+            End Get
+        End Property
 
         ''' <summary>
         ''' 摘要開始日が明日以降であるメソッド

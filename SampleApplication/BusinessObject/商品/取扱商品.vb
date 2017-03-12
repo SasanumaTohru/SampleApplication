@@ -44,7 +44,7 @@
         ''' 商品の一覧を返します。
         ''' </summary>
         ''' <returns></returns>
-        Public ReadOnly Property 一覧 As List(Of 商品)
+        Public ReadOnly Property リスト As List(Of 商品)
             Get
                 Return m_List
             End Get

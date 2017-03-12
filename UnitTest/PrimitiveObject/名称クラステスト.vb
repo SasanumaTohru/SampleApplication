@@ -14,6 +14,7 @@
         Dim 国名 As New SampleApplication.PrimitiveObject.名称(m_正値)
         '値プロパティは読み取り専用である。
         Assert.AreEqual(m_正値, 国名.値)
+        Assert.AreEqual(2, 国名.値.Length)
 
         'インスタンス生成時に値の先頭や末尾にスペースが含まれている場合、コンストラクタで除去する。
         Dim 国名2 As New SampleApplication.PrimitiveObject.名称(m_不正値1)

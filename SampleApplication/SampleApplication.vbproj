@@ -130,6 +130,7 @@
     <Compile Include="PrimitiveObject\日付.vb" />
     <Compile Include="PrimitiveObject\自然数.vb" />
     <Compile Include="PrimitiveObject\金額.vb" />
+    <Compile Include="ServiceObject\列挙型について.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
