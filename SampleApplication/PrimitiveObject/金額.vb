@@ -27,7 +27,7 @@
         ''' <returns></returns>
         Public ReadOnly Property 円マーク付書式 As String
             Get
-                Return "\" & m_値.ToString("#,##0")
+                Return $"\{m_値.ToString("#,##0")}"
             End Get
         End Property
 

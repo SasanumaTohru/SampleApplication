@@ -7,12 +7,19 @@
         ''' コンストラクタ
         ''' </summary>
         Public Sub New()
+            データベースから商品を読み込む()
+        End Sub
+
+        ''' <summary>
+        ''' データベースから商品を読み込みます。
+        ''' </summary>
+        Private Sub データベースから商品を読み込む()
             Using MyDB As New SampleAppDBEntities
                 Dim レコードセット = From レコード In MyDB.M_商品
 
                 For Each 商品データ In レコードセット
                     Dim 商品 As New 商品(商品データ)
-                    m_List.Add(商品)
+                    リストに追加する(商品)
                 Next
             End Using
         End Sub
@@ -22,7 +29,23 @@
         ''' </summary>
         ''' <param name="商品"></param>
         Public Sub 追加する(商品 As 商品)
-            'データの永続化
+            商品を保存する(商品)
+            リストに追加する(商品)
+        End Sub
+
+        ''' <summary>
+        ''' リストに商品を追加します。
+        ''' </summary>
+        ''' <param name="商品"></param>
+        Private Sub リストに追加する(商品 As 商品)
+            m_List.Add(商品)
+        End Sub
+
+        ''' <summary>
+        ''' データベースに商品を保存します。
+        ''' </summary>
+        ''' <param name="商品"></param>
+        Private Sub 商品を保存する(商品 As 商品)
             Using MyDB As New SampleAppDBEntities
                 Dim 追加する商品 As New M_商品 With {
                     .商品ID = 商品.商品ID.値,
@@ -36,8 +59,6 @@
                 MyDB.M_商品.Add(追加する商品)
                 MyDB.SaveChanges()
             End Using
-            'リストへの追加
-            m_List.Add(商品)
         End Sub
 
         ''' <summary>
