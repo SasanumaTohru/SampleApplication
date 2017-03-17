@@ -1,7 +1,7 @@
 ﻿<TestClass()> Public Class TestDataSetup
 
     Inherits CollectionBase
-    Dim m_List As New List(Of String)
+    Dim m_リスト As New List(Of String)
 
     Private Const m_DataSource As String = "Data Source = DESKTOP-J04U41C\SQLEXPRESS;"
     Private Const m_InitialCatalog As String = "Initial Catalog = SampleAppDB;"
@@ -47,9 +47,9 @@
             Const _仕入価格 As Decimal = 270000D
             Const _販売価格 As Decimal = 300000D
 
-            Dim レコードセット = From レコード In TestDB.M_商品 Where レコード.商品ID = _商品ID
+            Dim ヒットリスト = From レコード In TestDB.M_商品 Where レコード.商品ID = _商品ID
 
-            If レコードセット.Count = 0 Then
+            If ヒットリスト.Count = 0 Then
                 'Create
                 Dim 商品 As New SampleApplication.M_商品 With {
                     .商品ID = _商品ID,
@@ -74,11 +74,11 @@
     ''' <param name="商品ID"></param>
     Public Shared Sub 指定した商品IDが存在する場合には削除する(商品ID As String)
         Using TestDB As New SampleApplication.SampleAppDBEntities
-            Dim レコードセット = From レコード In TestDB.M_商品 Where レコード.商品ID = 商品ID
+            Dim ヒットリスト = From レコード In TestDB.M_商品 Where レコード.商品ID = 商品ID
 
-            If レコードセット.Count = 1 Then
+            If ヒットリスト.Count = 1 Then
                 With TestDB
-                    .M_商品.Remove(レコードセット.First)
+                    .M_商品.Remove(ヒットリスト.First)
                     .SaveChanges()
                 End With
             End If
@@ -93,9 +93,9 @@
     ''' <returns></returns>
     Public Function テスト文字列を生成する(任意文字列 As String, 生成数 As Integer) As List(Of String)
         For カウンタ = 1 To 生成数
-            m_List.Add("test" & 任意文字列 & カウンタ.ToString)
+            m_リスト.Add("test" & 任意文字列 & カウンタ.ToString)
         Next
-        Return m_List
+        Return m_リスト
     End Function
 
 End Class

@@ -18,9 +18,9 @@
         ''' <param name="値"></param>
         Private Sub 分類コードが存在する(値 As Integer)
             Using MyDB As New SampleAppDBEntities
-                Dim レコードセット = From レコード In MyDB.M_商品分類 Where レコード.コード = 値
+                Dim ヒットリスト = From レコード In MyDB.M_商品分類 Where レコード.コード = 値
 
-                If レコードセット.Count <> 1 Then
+                If ヒットリスト.Count <> 1 Then
                     Throw New Exception("指定された商品分類コードは存在しません。")
                 End If
             End Using

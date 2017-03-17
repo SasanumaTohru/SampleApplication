@@ -1,7 +1,7 @@
 ﻿Namespace BusinessObject.商品
     Public Class 取扱商品
         Inherits CollectionBase
-        Private m_List As New List(Of 商品)
+        Private m_リスト As New List(Of 商品)
 
         ''' <summary>
         ''' コンストラクタ
@@ -15,9 +15,9 @@
         ''' </summary>
         Private Sub データベースから商品を読み込む()
             Using MyDB As New SampleAppDBEntities
-                Dim レコードセット = From レコード In MyDB.M_商品
+                Dim 商品の集合 = From 集合の要素 In MyDB.M_商品
 
-                For Each 商品データ In レコードセット
+                For Each 商品データ In 商品の集合
                     Dim 商品 As New 商品(商品データ)
                     リストに追加する(商品)
                 Next
@@ -38,7 +38,7 @@
         ''' </summary>
         ''' <param name="商品"></param>
         Private Sub リストに追加する(商品 As 商品)
-            m_List.Add(商品)
+            m_リスト.Add(商品)
         End Sub
 
         ''' <summary>
@@ -67,7 +67,7 @@
         ''' <returns></returns>
         Public ReadOnly Property リスト As List(Of 商品)
             Get
-                Return m_List
+                Return m_リスト
             End Get
         End Property
 
@@ -77,7 +77,7 @@
         ''' <returns></returns>
         Public ReadOnly Property 数() As PrimitiveObject.自然数
             Get
-                Return New PrimitiveObject.自然数(CType(m_List.Count, UInteger))
+                Return New PrimitiveObject.自然数(CType(m_リスト.Count, UInteger))
             End Get
         End Property
 
@@ -88,9 +88,9 @@
         ''' <returns></returns>
         Public ReadOnly Property 商品(ID As 商品ID) As 商品
             Get
-                Dim レコードセット = From レコード In m_List Where レコード.商品ID.値 = ID.値
+                Dim ヒットリスト = From レコード In m_リスト Where レコード.商品ID.値 = ID.値
 
-                Return レコードセット.First
+                Return ヒットリスト.First
             End Get
         End Property
 

@@ -18,9 +18,9 @@
         ''' <param name="ID"></param>
         Private Sub IDが存在する(ID As Integer)
             Using MyDB As New SampleAppDBEntities
-                Dim レコードセット = From レコード In MyDB.M_メーカー Where レコード.ID = ID
+                Dim ヒットリスト = From レコード In MyDB.M_メーカー Where レコード.ID = ID
 
-                If レコードセット.Count <> 1 Then
+                If ヒットリスト.Count <> 1 Then
                     Throw New Exception("指定されたメーカーは存在しません。")
                 End If
             End Using

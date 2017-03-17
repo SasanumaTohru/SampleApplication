@@ -20,9 +20,9 @@
         ''' <returns></returns>
         Private Function メーカー名を取得する(ID As メーカーID) As PrimitiveObject.名称
             Using MyDB As New SampleAppDBEntities
-                Dim レコードセット = From レコード In MyDB.M_メーカー Where レコード.ID = ID.値
+                Dim ヒットリスト = From レコード In MyDB.M_メーカー Where レコード.ID = ID.値
 
-                Return New PrimitiveObject.名称(レコードセット.First.名称)
+                Return New PrimitiveObject.名称(ヒットリスト.First.名称)
             End Using
         End Function
 
