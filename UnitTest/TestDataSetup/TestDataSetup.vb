@@ -18,9 +18,9 @@
     ''' SQLを実行する汎用メソッド
     ''' </summary>
     ''' <param name="SQL文"></param>
-    Public Shared Sub SQLを実行する(SQL文 As String)
+    Public Sub SQLを実行する(SQL文 As String)
         'データベースに接続
-        Dim DB接続 As New System.Data.SqlClient.SqlConnection(m_DB接続文字列)
+        Dim DB接続 As New SqlClient.SqlConnection(m_DB接続文字列)
         ' データベース接続を開く
         DB接続.Open()
         ' oSqlConnection から SqlCommand のインスタンスを生成する
@@ -44,8 +44,6 @@
             Const _分類 As Integer = 4
             Const _商品 As String = "アナログ一眼レフカメラ"
             Const _単位 As Integer = 4
-            Const _仕入価格 As Decimal = 270000D
-            Const _販売価格 As Decimal = 300000D
 
             Dim ヒットリスト = From レコード In TestDB.M_商品 Where レコード.商品ID = _商品ID
 
@@ -56,9 +54,7 @@
                     .メーカー = _メーカー,
                     .分類 = _分類,
                     .商品名 = _商品,
-                    .単位 = _単位,
-                    .仕入価格 = _仕入価格,
-                    .販売価格 = _販売価格
+                    .単位 = _単位
                 }
                 With TestDB
                     .M_商品.Add(商品)

@@ -52,12 +52,12 @@
                     .メーカー = 商品.メーカー.ID.値,
                     .商品名 = 商品.名称.値,
                     .分類 = 商品.分類.ID.値,
-                    .単位 = CType(商品.単位.ID.値, Integer),
-                    .仕入価格 = 商品.仕入価格.値,
-                    .販売価格 = 商品.販売価格.値
-                    }
-                MyDB.M_商品.Add(追加する商品)
-                MyDB.SaveChanges()
+                    .単位 = CType(商品.単位.ID.値, Integer)
+                }
+                With MyDB
+                    .M_商品.Add(追加する商品)
+                    .SaveChanges()
+                End With
             End Using
         End Sub
 

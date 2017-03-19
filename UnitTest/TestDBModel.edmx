@@ -21,8 +21,6 @@
           <Property Name="商品名" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="分類" Type="int" Nullable="false" />
           <Property Name="単位" Type="int" Nullable="false" />
-          <Property Name="仕入価格" Type="money" Nullable="false" />
-          <Property Name="販売価格" Type="money" Nullable="false" />
         </EntityType>
         <EntityType Name="M_商品分類">
           <Key>
@@ -31,10 +29,22 @@
           <Property Name="コード" Type="int" Nullable="false" />
           <Property Name="名称" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="T_適用価格">
+          <Key>
+            <PropertyRef Name="商品ID" />
+            <PropertyRef Name="区分" />
+            <PropertyRef Name="適用開始日" />
+          </Key>
+          <Property Name="商品ID" Type="nchar" MaxLength="6" Nullable="false" />
+          <Property Name="区分" Type="int" Nullable="false" />
+          <Property Name="価格" Type="money" Nullable="false" />
+          <Property Name="適用開始日" Type="date" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="TestDBModelStoreContainer">
           <EntitySet Name="M_メーカー" EntityType="Self.M_メーカー" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_商品" EntityType="Self.M_商品" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_商品分類" EntityType="Self.M_商品分類" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_適用価格" EntityType="Self.T_適用価格" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -43,6 +53,7 @@
         <EntityContainer Name="SampleAppDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="M_メーカー" EntityType="TestDBModel.M_メーカー" />
           <EntitySet Name="M_商品分類" EntityType="TestDBModel.M_商品分類" />
+          <EntitySet Name="T_適用価格" EntityType="TestDBModel.T_適用価格" />
           <EntitySet Name="M_商品" EntityType="TestDBModel.M_商品" />
         </EntityContainer>
         <EntityType Name="M_メーカー">
@@ -59,6 +70,17 @@
           <Property Name="コード" Type="Int32" Nullable="false" />
           <Property Name="名称" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="T_適用価格">
+          <Key>
+            <PropertyRef Name="商品ID" />
+            <PropertyRef Name="区分" />
+            <PropertyRef Name="適用開始日" />
+          </Key>
+          <Property Name="商品ID" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="区分" Type="Int32" Nullable="false" />
+          <Property Name="価格" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="適用開始日" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
         <EntityType Name="M_商品">
           <Key>
             <PropertyRef Name="商品ID" />
@@ -68,8 +90,6 @@
           <Property Name="商品名" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="分類" Type="Int32" Nullable="false" />
           <Property Name="単位" Type="Int32" Nullable="false" />
-          <Property Name="仕入価格" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-          <Property Name="販売価格" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -93,11 +113,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="T_適用価格">
+            <EntityTypeMapping TypeName="TestDBModel.T_適用価格">
+              <MappingFragment StoreEntitySet="T_適用価格">
+                <ScalarProperty Name="適用開始日" ColumnName="適用開始日" />
+                <ScalarProperty Name="価格" ColumnName="価格" />
+                <ScalarProperty Name="区分" ColumnName="区分" />
+                <ScalarProperty Name="商品ID" ColumnName="商品ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="M_商品">
             <EntityTypeMapping TypeName="TestDBModel.M_商品">
               <MappingFragment StoreEntitySet="M_商品">
-                <ScalarProperty Name="販売価格" ColumnName="販売価格" />
-                <ScalarProperty Name="仕入価格" ColumnName="仕入価格" />
                 <ScalarProperty Name="単位" ColumnName="単位" />
                 <ScalarProperty Name="分類" ColumnName="分類" />
                 <ScalarProperty Name="商品名" ColumnName="商品名" />

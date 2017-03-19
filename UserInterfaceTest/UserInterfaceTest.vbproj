@@ -93,6 +93,9 @@
     <Compile Include="M_商品分類.vb">
       <DependentUpon>UIDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="T_適用価格.vb">
+      <DependentUpon>UIDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="スタート画面.vb">
       <SubType>Form</SubType>
     </Compile>

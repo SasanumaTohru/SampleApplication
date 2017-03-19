@@ -78,7 +78,7 @@
   <ItemGroup>
     <Compile Include="BusinessObject\商品\メーカー.vb" />
     <Compile Include="BusinessObject\商品\メーカーID.vb" />
-    <Compile Include="BusinessObject\商品\適用価格.vb" />
+    <Compile Include="BusinessObject\商品\価格.vb" />
     <Compile Include="BusinessObject\商品\価格変更\スケジュール.vb" />
     <Compile Include="BusinessObject\商品\価格変更\予定.vb" />
     <Compile Include="BusinessObject\商品\取扱商品.vb" />
@@ -131,7 +131,9 @@
     <Compile Include="PrimitiveObject\日付.vb" />
     <Compile Include="PrimitiveObject\自然数.vb" />
     <Compile Include="PrimitiveObject\金額.vb" />
-    <Compile Include="ServiceObject\列挙型について.vb" />
+    <Compile Include="T_適用価格.vb">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -175,6 +177,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ServiceObject\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

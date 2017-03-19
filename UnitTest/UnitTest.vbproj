@@ -93,7 +93,6 @@
     <Import Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessObject\価格クラステスト.vb" />
     <Compile Include="BusinessObject\取扱商品テスト.vb" />
     <Compile Include="BusinessObject\商品分類コードテスト.vb" />
     <Compile Include="BusinessObject\メーカーIDテスト.vb" />
@@ -148,6 +147,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="T_適用価格.vb">
+      <DependentUpon>TestDBModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

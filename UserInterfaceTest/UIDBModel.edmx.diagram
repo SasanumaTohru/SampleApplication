@@ -7,6 +7,7 @@
       <Diagram DiagramId="583de5a307224571b5af5b3c17113a7e" Name="Diagram1">
         <EntityTypeShape EntityType="SampleAppDBModel.M_メーカー" Width="1.5" PointX="3.375" PointY="0.75" />
         <EntityTypeShape EntityType="SampleAppDBModel.M_商品分類" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SampleAppDBModel.T_適用価格" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="SampleAppDBModel.M_商品" Width="1.5" PointX="3.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>

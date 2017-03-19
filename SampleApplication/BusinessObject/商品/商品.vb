@@ -9,34 +9,18 @@
         Private m_名称 As PrimitiveObject.名称
         Private m_分類 As 分類
         Private m_単位 As FoundationObject.単位
-        Private m_仕入価格 As PrimitiveObject.金額
-        Private m_販売価格 As PrimitiveObject.金額
 
-        ''' <summary>
-        ''' 生成用コンストラクタ
-        ''' </summary>
-        ''' <param name="商品ID"></param>
-        ''' <param name="メーカー"></param>
-        ''' <param name="名称"></param>
-        ''' <param name="分類"></param>
-        ''' <param name="仕入価格"></param>
-        ''' <param name="販売価格"></param>
         Public Sub New(商品ID As 商品ID,
                        メーカー As メーカー,
                        名称 As PrimitiveObject.名称,
                        分類 As 分類,
-                       単位 As FoundationObject.単位,
-                       仕入価格 As PrimitiveObject.金額,
-                       販売価格 As PrimitiveObject.金額)
+                       単位 As FoundationObject.単位)
 
             m_商品ID = 商品ID
             m_メーカー = メーカー
             m_名称 = 名称
             m_分類 = 分類
             m_単位 = 単位
-            m_仕入価格 = 仕入価格
-            m_販売価格 = 販売価格
-
         End Sub
 
         ''' <summary>
@@ -49,8 +33,6 @@
             m_名称 = New PrimitiveObject.名称(商品.商品名)
             m_分類 = New 分類(New 分類コード(商品.分類))
             m_単位 = New FoundationObject.単位(CType(商品.単位, FoundationObject.単位.単位リスト))
-            m_仕入価格 = New PrimitiveObject.金額(商品.仕入価格)
-            m_販売価格 = New PrimitiveObject.金額(商品.販売価格)
         End Sub
 
         ''' <summary>
@@ -103,35 +85,31 @@
             End Get
         End Property
 
-        ''' <summary>
-        ''' 仕入価格プロパティ
-        ''' </summary>
-        ''' <returns></returns>
-        Public ReadOnly Property 仕入価格 As PrimitiveObject.金額
+        Public ReadOnly Property 価格(価格区分 As 価格.区分リスト, 照会日 As PrimitiveObject.日付) As PrimitiveObject.金額
             Get
-                Return m_仕入価格
+                Return データベースから適用価格を参照する(価格区分, 照会日)
             End Get
         End Property
 
-        ''' <summary>
-        ''' 販売価格プロパティ
-        ''' </summary>
-        ''' <returns></returns>
-        Public ReadOnly Property 販売価格 As PrimitiveObject.金額
-            Get
-                Return m_販売価格
-            End Get
-        End Property
+        Private Function データベースから適用価格を参照する(価格区分 As 価格.区分リスト, 照会日 As PrimitiveObject.日付) As PrimitiveObject.金額
+            Using MyDB As New SampleAppDBEntities
+                Dim 適用価格の集合 = From 適用価格 In MyDB.T_適用価格
+                              Where 適用価格.商品ID = m_商品ID.値 And 適用価格.区分 = 価格区分 And 適用価格.適用開始日 <= 照会日.値
+                              Order By 適用価格.適用開始日 Descending
 
-        ''' <summary>
-        ''' 売上利益プロパティ
-        ''' </summary>
-        ''' <returns></returns>
-        Public ReadOnly Property 売上利益 As PrimitiveObject.金額
-            Get
-                Return New PrimitiveObject.金額(m_販売価格.値 - m_仕入価格.値)
-            End Get
-        End Property
+                適用できる価格がある(適用価格の集合)
+                Return New PrimitiveObject.金額(適用価格の集合.First.価格)
+            End Using
+        End Function
+
+        Private Shared Sub 適用できる価格がある(適用価格の集合 As IOrderedQueryable(Of T_適用価格))
+            If 適用価格の集合.Count = 0 Then
+                Throw New Exception("適用できる価格がありません。")
+            End If
+        End Sub
+
+        'Public ReadOnly Property 個別売上利益 As PrimitiveObject.金額
 
     End Class
+
 End Namespace
