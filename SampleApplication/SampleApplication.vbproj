@@ -78,8 +78,8 @@
   <ItemGroup>
     <Compile Include="BusinessObject\商品\メーカー.vb" />
     <Compile Include="BusinessObject\商品\メーカーID.vb" />
-    <Compile Include="BusinessObject\商品\価格変更計画.vb" />
-    <Compile Include="BusinessObject\商品\価格変更項目.vb" />
+    <Compile Include="BusinessObject\商品\価格変更\スケジュール.vb" />
+    <Compile Include="BusinessObject\商品\価格変更\予定.vb" />
     <Compile Include="BusinessObject\商品\取扱商品.vb" />
     <Compile Include="BusinessObject\商品\商品.vb" />
     <Compile Include="BusinessObject\商品\分類.vb" />

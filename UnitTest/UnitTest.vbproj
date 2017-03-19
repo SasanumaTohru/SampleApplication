@@ -96,8 +96,8 @@
     <Compile Include="BusinessObject\取扱商品テスト.vb" />
     <Compile Include="BusinessObject\商品分類コードテスト.vb" />
     <Compile Include="BusinessObject\メーカーIDテスト.vb" />
-    <Compile Include="BusinessObject\価格変更計画クラステスト.vb" />
-    <Compile Include="BusinessObject\価格変更項目クラステスト.vb" />
+    <Compile Include="BusinessObject\価格変更スケジュールクラステスト.vb" />
+    <Compile Include="BusinessObject\価格変更予定クラステスト.vb" />
     <Compile Include="BusinessObject\商品IDテスト.vb" />
     <Compile Include="BusinessObject\メーカークラステスト.vb" />
     <Compile Include="BusinessObject\商品分類テスト.vb" />
