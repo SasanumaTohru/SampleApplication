@@ -93,6 +93,7 @@
     <Import Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestData\テストデータ.vb" />
     <Compile Include="BusinessObject\取扱商品テスト.vb" />
     <Compile Include="BusinessObject\商品分類コードテスト.vb" />
     <Compile Include="BusinessObject\メーカーIDテスト.vb" />
@@ -112,7 +113,7 @@
     <Compile Include="M_商品分類.vb">
       <DependentUpon>TestDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TestDataSetup\TestDataSetup.vb" />
+    <Compile Include="TestData\TestDataSetup.vb" />
     <Compile Include="TestDBModel.Context.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -190,7 +191,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TestDataSetup\商品セットアップ.sql" />
+    <Content Include="TestData\商品セットアップ.sql" />
     <Content Include="TestDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TestDBModel.edmx</DependentUpon>

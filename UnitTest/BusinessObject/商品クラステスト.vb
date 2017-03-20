@@ -14,7 +14,7 @@ Imports SampleApplication.PrimitiveObject
 
     <TestMethod()> <TestCategory("基本テスト")> Public Sub 商品クラス基本テスト()
 
-        '作成
+        'Create
         Dim 新しい商品 As New 商品.商品(
             New 商品.商品ID(m_S1商品ID, 商品.商品ID.コンストラクタオプション.生成),
             New 商品.メーカー(New 商品.メーカーID(2)),
@@ -28,25 +28,29 @@ Imports SampleApplication.PrimitiveObject
         Assert.AreEqual(m_S1分類, 新しい商品.分類.名称.値)
         Assert.AreEqual(m_S1単位, 新しい商品.単位.名称.値)
 
-        '参照
-        Assert.AreEqual(100D, テストデータ.テスト商品.価格(商品.価格.区分リスト.販売, New 日付(Today)).値)
+        'Read
+        TestDataSetup.適用価格のテストデータを準備する()
+
         Assert.AreEqual(90D, テストデータ.テスト商品.価格(商品.価格.区分リスト.仕入, New 日付(Today)).値)
-        Assert.AreEqual(90D, テストデータ.テスト商品.価格(商品.価格.区分リスト.販売, New 日付(#3/19/2017#)).値)
-        Assert.AreEqual(110D, テストデータ.テスト商品.価格(商品.価格.区分リスト.販売, New 日付(#3/21/2017#)).値)
-        Assert.AreEqual(110D, テストデータ.テスト商品.価格(商品.価格.区分リスト.販売, New 日付(#4/1/2017#)).値)
+        Assert.AreEqual(100D, テストデータ.テスト商品.価格(商品.価格.区分リスト.販売, New 日付(Today)).値)
+        Assert.AreEqual(10D, テストデータ.テスト商品.個別売上利益(New 日付(Today)).値)
+
+        Assert.AreEqual(85D, テストデータ.テスト商品.価格(商品.価格.区分リスト.仕入, New 日付(Today.AddDays(-1))).値)
+        Assert.AreEqual(90D, テストデータ.テスト商品.価格(商品.価格.区分リスト.販売, New 日付(Today.AddDays(-1))).値)
+        Assert.AreEqual(5D, テストデータ.テスト商品.個別売上利益(New 日付(Today.AddDays(-1))).値)
+
+        Assert.AreEqual(105D, テストデータ.テスト商品.価格(商品.価格.区分リスト.仕入, New 日付(Today.AddDays(1))).値)
+        Assert.AreEqual(120D, テストデータ.テスト商品.価格(商品.価格.区分リスト.販売, New 日付(Today.AddDays(1))).値)
+        Assert.AreEqual(15D, テストデータ.テスト商品.個別売上利益(New 日付(Today.AddDays(1))).値)
 
     End Sub
 
     <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 条件に合う適用価格がない()
         Assert.AreEqual(110D, テストデータ.テスト商品.価格(商品.価格.区分リスト.販売, New 日付(#1/1/2017#)).値)
     End Sub
-End Class
 
-Public Class テストデータ
-    Public Shared テスト商品 As New 商品.商品(
-            New 商品.商品ID("999999", 商品.商品ID.コンストラクタオプション.参照),
-            New 商品.メーカー(New 商品.メーカーID(3)),
-            New 名称("アナログ一眼レフカメラ"),
-            New 商品.分類(New 商品.分類コード(4)),
-            New 単位(単位.単位リスト.台))
+    <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 照会日の個別売上利益が存在しない()
+        Assert.AreEqual(0D, テストデータ.テスト商品.個別売上利益(New 日付(#1/1/2017#)).値)
+    End Sub
+
 End Class

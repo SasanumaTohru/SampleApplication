@@ -94,4 +94,23 @@
         Return m_リスト
     End Function
 
+    Public Shared Sub 適用価格のテストデータを準備する()
+        Dim Delete文 As String = "DELETE FROM [dbo].[T_適用価格] WHERE [商品ID] = '999999';"
+        Dim Insert文前半 As String = "INSERT INTO [dbo].[T_適用価格] ([商品ID], [区分], [価格], [適用開始日]) VALUES (N'999999', "
+        Dim Insert文 As String =
+            Insert文前半 & "1, CAST(85 AS Money), N'" & Today.AddDays(-1).ToShortDateString & "');" _
+            & Insert文前半 & "1, CAST(90 As Money), N'" & Today.ToShortDateString & "');" _
+            & Insert文前半 & "1, CAST(105 AS Money), N'" & Today.AddDays(1).ToShortDateString & "');" _
+            & Insert文前半 & "2, CAST(90 AS Money), N'" & Today.AddDays(-1).ToShortDateString & "');" _
+            & Insert文前半 & "2, CAST(100 AS Money), N'" & Today.ToShortDateString & "');" _
+            & Insert文前半 & "2, CAST(120 AS Money), N'" & Today.AddDays(1).ToShortDateString & "');"
+
+        Dim tds As New TestDataSetup
+        With tds
+            .SQLを実行する(Delete文)
+            .SQLを実行する(Insert文)
+        End With
+
+    End Sub
+
 End Class
