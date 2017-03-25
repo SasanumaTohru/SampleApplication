@@ -29,19 +29,20 @@ Imports SampleApplication.PrimitiveObject
         Assert.AreEqual(m_S1単位, 新しい商品.単位.名称.値)
 
         'Read
-        TestDataSetup.適用価格のテストデータを準備する()
+        Dim テストデータ As New TestDataSetup
+        テストデータ.適用価格のテストデータを準備する()
 
-        Assert.AreEqual(90D, テストデータ.テスト商品.価格(商品.価格.区分リスト.仕入, New 日付(Today)).値)
-        Assert.AreEqual(100D, テストデータ.テスト商品.価格(商品.価格.区分リスト.販売, New 日付(Today)).値)
-        Assert.AreEqual(10D, テストデータ.テスト商品.個別売上利益(New 日付(Today)).値)
+        Assert.AreEqual(90D, UnitTest.テストデータ.テスト商品.価格(商品.価格.区分リスト.仕入, New 日付(Today)).値)
+        Assert.AreEqual(100D, UnitTest.テストデータ.テスト商品.価格(商品.価格.区分リスト.販売, New 日付(Today)).値)
+        Assert.AreEqual(10D, UnitTest.テストデータ.テスト商品.個別売上利益(New 日付(Today)).値)
 
-        Assert.AreEqual(85D, テストデータ.テスト商品.価格(商品.価格.区分リスト.仕入, New 日付(Today.AddDays(-1))).値)
-        Assert.AreEqual(90D, テストデータ.テスト商品.価格(商品.価格.区分リスト.販売, New 日付(Today.AddDays(-1))).値)
-        Assert.AreEqual(5D, テストデータ.テスト商品.個別売上利益(New 日付(Today.AddDays(-1))).値)
+        Assert.AreEqual(85D, UnitTest.テストデータ.テスト商品.価格(商品.価格.区分リスト.仕入, New 日付(Today.AddDays(-1))).値)
+        Assert.AreEqual(90D, UnitTest.テストデータ.テスト商品.価格(商品.価格.区分リスト.販売, New 日付(Today.AddDays(-1))).値)
+        Assert.AreEqual(5D, UnitTest.テストデータ.テスト商品.個別売上利益(New 日付(Today.AddDays(-1))).値)
 
-        Assert.AreEqual(105D, テストデータ.テスト商品.価格(商品.価格.区分リスト.仕入, New 日付(Today.AddDays(1))).値)
-        Assert.AreEqual(120D, テストデータ.テスト商品.価格(商品.価格.区分リスト.販売, New 日付(Today.AddDays(1))).値)
-        Assert.AreEqual(15D, テストデータ.テスト商品.個別売上利益(New 日付(Today.AddDays(1))).値)
+        Assert.AreEqual(105D, UnitTest.テストデータ.テスト商品.価格(商品.価格.区分リスト.仕入, New 日付(Today.AddDays(1))).値)
+        Assert.AreEqual(120D, UnitTest.テストデータ.テスト商品.価格(商品.価格.区分リスト.販売, New 日付(Today.AddDays(1))).値)
+        Assert.AreEqual(15D, UnitTest.テストデータ.テスト商品.個別売上利益(New 日付(Today.AddDays(1))).値)
 
     End Sub
 

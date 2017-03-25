@@ -48,16 +48,20 @@
 
         Private Function 商品IDは存在する(商品ID As String) As Boolean
             Dim レスポンス As Boolean
-            Using MyDB As New SampleApplication.SampleAppDBEntities
-                Dim 商品IDの集合 = From 集合の要素 In MyDB.M_商品 Where 集合の要素.商品ID = 商品ID
+            Try
+                Using MyDB As New SampleApplication.SampleAppDBEntities
+                    Dim 商品IDの集合 = From 集合の要素 In MyDB.M_商品 Where 集合の要素.商品ID = 商品ID
 
-                Select Case 商品IDの集合.Count
-                    Case 1
-                        レスポンス = True
-                    Case Else
-                        レスポンス = False
-                End Select
-            End Using
+                    Select Case 商品IDの集合.Count
+                        Case 1
+                            レスポンス = True
+                        Case Else
+                            レスポンス = False
+                    End Select
+                End Using
+            Catch ex As Exception
+                Throw New Exception("データベースを参照できませんでした。")
+            End Try
             Return レスポンス
         End Function
 

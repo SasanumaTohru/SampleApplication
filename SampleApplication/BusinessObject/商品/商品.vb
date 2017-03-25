@@ -10,12 +10,7 @@
         Private m_分類 As 分類
         Private m_単位 As FoundationObject.単位
 
-        Public Sub New(商品ID As 商品ID,
-                       メーカー As メーカー,
-                       名称 As PrimitiveObject.名称,
-                       分類 As 分類,
-                       単位 As FoundationObject.単位)
-
+        Public Sub New(商品ID As 商品ID, メーカー As メーカー, 名称 As PrimitiveObject.名称, 分類 As 分類, 単位 As FoundationObject.単位)
             m_商品ID = 商品ID
             m_メーカー = メーカー
             m_名称 = 名称
@@ -35,50 +30,30 @@
             m_単位 = New FoundationObject.単位(CType(商品.単位, FoundationObject.単位.単位リスト))
         End Sub
 
-        ''' <summary>
-        ''' 商品IDプロパティ
-        ''' </summary>
-        ''' <returns></returns>
         Public ReadOnly Property 商品ID As 商品ID
             Get
                 Return m_商品ID
             End Get
         End Property
 
-        ''' <summary>
-        ''' メーカープロパティ
-        ''' </summary>
-        ''' <returns></returns>
         Public ReadOnly Property メーカー As メーカー
             Get
                 Return m_メーカー
             End Get
         End Property
 
-        ''' <summary>
-        ''' 商品名プロパティ
-        ''' </summary>
-        ''' <returns></returns>
         Public ReadOnly Property 名称 As PrimitiveObject.名称
             Get
                 Return m_名称
             End Get
         End Property
 
-        ''' <summary>
-        ''' 商品分類プロパティ
-        ''' </summary>
-        ''' <returns></returns>
         Public ReadOnly Property 分類 As 分類
             Get
                 Return m_分類
             End Get
         End Property
 
-        ''' <summary>
-        ''' 単位プロパティ
-        ''' </summary>
-        ''' <returns></returns>
         Public ReadOnly Property 単位 As FoundationObject.単位
             Get
                 Return m_単位
@@ -102,7 +77,7 @@
             End Using
         End Function
 
-        Private Shared Sub 適用できる価格がある(適用価格の集合 As IOrderedQueryable(Of T_適用価格))
+        Private Sub 適用できる価格がある(適用価格の集合 As IOrderedQueryable(Of T_適用価格))
             If 適用価格の集合.Count = 0 Then
                 Throw New Exception("照会日に適用される仕入価格または販売価格が存在しません。")
             End If
@@ -121,5 +96,4 @@
         End Property
 
     End Class
-
 End Namespace

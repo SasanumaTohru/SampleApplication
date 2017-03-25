@@ -9,8 +9,8 @@
     Private Const m_DB接続文字列 As String = m_DataSource & m_InitialCatalog & m_IntegratedSecurity
 
     <TestMethod> <TestCategory("テストデータ作成")> Public Sub テスト商品データの作成()
-        SQLを実行する("INSERT INTO [dbo].[M_商品] ([商品ID], [メーカー], [商品名], [分類], [単位], [仕入価格], [販売価格])
-                               VALUES (N'999990', 11, N'A4コピー用紙', 8, 6, CAST(980.0000 AS Money), CAST(1100.0000 AS Money));")
+        SQLを実行する("INSERT INTO [dbo].[M_商品] ([商品ID], [メーカー], [商品名], [分類], [単位])
+                               VALUES (N'999990', 11, N'A4コピー用紙', 8, 6);")
         指定した商品IDが存在する場合には削除する("999990")
     End Sub
 
@@ -27,6 +27,9 @@
         Dim SQLコマンド As SqlClient.SqlCommand = DB接続.CreateCommand()
         ' 実行する SQL コマンドを設定する
         SQLコマンド.CommandText = SQL文
+        ' SQL コマンドを実行し、影響を受けた行を返す
+        Dim 影響行数 As Integer = SQLコマンド.ExecuteNonQuery()
+        Debug.Print($"SQLを実装するメソッドにより影響を受けた行数：{影響行数.ToString}")
         '終了処理
         SQLコマンド.Dispose()
         DB接続.Dispose()
@@ -70,11 +73,11 @@
     ''' <param name="商品ID"></param>
     Public Shared Sub 指定した商品IDが存在する場合には削除する(商品ID As String)
         Using TestDB As New SampleApplication.SampleAppDBEntities
-            Dim ヒットリスト = From レコード In TestDB.M_商品 Where レコード.商品ID = 商品ID
+            Dim 検索結果 = From レコード In TestDB.M_商品 Where レコード.商品ID = 商品ID
 
-            If ヒットリスト.Count = 1 Then
+            If 検索結果.Count = 1 Then
                 With TestDB
-                    .M_商品.Remove(ヒットリスト.First)
+                    .M_商品.Remove(検索結果.First)
                     .SaveChanges()
                 End With
             End If
@@ -94,8 +97,8 @@
         Return m_リスト
     End Function
 
-    Public Shared Sub 適用価格のテストデータを準備する()
-        Dim Delete文 As String = "DELETE FROM [dbo].[T_適用価格] WHERE [商品ID] = '999999';"
+    Public Sub 適用価格のテストデータを準備する()
+        Dim Delete文 As String = "DELETE FROM [dbo].[T_適用価格] WHERE [商品ID] = '999999'"
         Dim Insert文前半 As String = "INSERT INTO [dbo].[T_適用価格] ([商品ID], [区分], [価格], [適用開始日]) VALUES (N'999999', "
         Dim Insert文 As String =
             Insert文前半 & "1, CAST(85 AS Money), N'" & Today.AddDays(-1).ToShortDateString & "');" _
@@ -105,12 +108,8 @@
             & Insert文前半 & "2, CAST(100 AS Money), N'" & Today.ToShortDateString & "');" _
             & Insert文前半 & "2, CAST(120 AS Money), N'" & Today.AddDays(1).ToShortDateString & "');"
 
-        Dim tds As New TestDataSetup
-        With tds
-            .SQLを実行する(Delete文)
-            .SQLを実行する(Insert文)
-        End With
-
+        SQLを実行する(Delete文)
+        SQLを実行する(Insert文)
     End Sub
 
 End Class

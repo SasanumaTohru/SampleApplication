@@ -10,7 +10,7 @@ Imports SampleApplication.PrimitiveObject
         Const 商品1のID As String = "555555"
         Const 商品2のID As String = "666666"
 
-        '商品1の生成
+        ''商品1の生成
         Dim 商品1 As New 商品(New 商品ID(商品1のID, 商品ID.コンストラクタオプション.生成),
                           New メーカー(New メーカーID(1)),
                           New 名称("カメラ"),
