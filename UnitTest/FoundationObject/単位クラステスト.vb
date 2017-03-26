@@ -9,7 +9,7 @@
         Dim 単位 As New 単位(単位.単位リスト.式)
         'プロパティの参照。
         Assert.AreEqual("式", 単位.名称.値)
-        Assert.AreEqual(5UI, 単位.ID.値)
+        Assert.AreEqual(5, 単位.ID.値)
         '単位リストの最大最小値を取得するためのSharedプロパティ。
         Assert.AreEqual(1, 単位.単位リストの最小値)
         Assert.AreEqual(6, 単位.単位リストの最大値)

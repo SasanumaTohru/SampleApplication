@@ -1,9 +1,6 @@
 ﻿Namespace BusinessObject.商品
     Public Class 商品
 
-        ''' <summary>
-        ''' フィールド
-        ''' </summary>
         Private m_商品ID As 商品ID
         Private m_メーカー As メーカー
         Private m_名称 As PrimitiveObject.名称
@@ -18,10 +15,6 @@
             m_単位 = 単位
         End Sub
 
-        ''' <summary>
-        ''' 参照用コンストラクタ
-        ''' </summary>
-        ''' <param name="商品"></param>
         Public Sub New(商品 As M_商品)
             m_商品ID = New 商品ID(商品.商品ID)
             m_メーカー = New メーカー(New メーカーID(商品.メーカー))
@@ -67,14 +60,18 @@
         End Property
 
         Private Function データベースから適用価格を参照する(価格区分 As 価格.区分リスト, 照会日 As PrimitiveObject.日付) As PrimitiveObject.金額
-            Using MyDB As New SampleAppDBEntities
-                Dim 適用価格の集合 = From 適用価格 In MyDB.T_適用価格
-                              Where 適用価格.商品ID = m_商品ID.値 And 適用価格.区分 = 価格区分 And 適用価格.適用開始日 <= 照会日.値
-                              Order By 適用価格.適用開始日 Descending
+            Try
+                Using MyDB As New SampleAppDBEntities
+                    Dim 適用価格の集合 = From 適用価格 In MyDB.T_適用価格
+                                  Where 適用価格.商品ID = m_商品ID.値 And 適用価格.区分 = 価格区分 And 適用価格.適用開始日 <= 照会日.値
+                                  Order By 適用価格.適用開始日 Descending
 
-                適用できる価格がある(適用価格の集合)
-                Return New PrimitiveObject.金額(適用価格の集合.First.価格)
-            End Using
+                    適用できる価格がある(適用価格の集合)
+                    Return New PrimitiveObject.金額(適用価格の集合.First.価格)
+                End Using
+            Catch ex As Exception
+                Throw New Exception("データベースを参照できませんでした。")
+            End Try
         End Function
 
         Private Sub 適用できる価格がある(適用価格の集合 As IOrderedQueryable(Of T_適用価格))

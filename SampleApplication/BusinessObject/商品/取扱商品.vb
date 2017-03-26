@@ -59,7 +59,7 @@
 
         Public ReadOnly Property 数() As PrimitiveObject.自然数
             Get
-                Return New PrimitiveObject.自然数(CType(m_リスト.Count, UInteger))
+                Return New PrimitiveObject.自然数(m_リスト.Count)
             End Get
         End Property
 

@@ -33,7 +33,7 @@ Imports SampleApplication.PrimitiveObject
             .追加する(商品2)
         End With
         '商品追加後の取扱商品数
-        Assert.AreEqual(CType(商品を追加する前の商品数 + 2, UInteger), 取扱商品.数.値)
+        Assert.AreEqual(商品を追加する前の商品数 + 2, 取扱商品.数.値)
         '特定商品へのアクセス
         Assert.AreEqual("カメラ", 取扱商品.商品(New 商品ID(商品1のID)).名称.値)
         '全取扱商品の参照
