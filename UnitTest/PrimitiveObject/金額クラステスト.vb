@@ -40,4 +40,9 @@
 
     End Sub
 
+    <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 金額クラスの例外テスト()
+        Dim 価格 As New 金額(999D)
+        Assert.AreEqual("", 価格.表示単位指定(9))
+    End Sub
+
 End Class

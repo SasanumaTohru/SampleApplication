@@ -4,10 +4,14 @@
         Private m_値 As Integer
 
         Public Sub New(値 As Integer)
+            値は0以上である(値)
+            m_値 = 値
+        End Sub
+
+        Private Shared Sub 値は0以上である(値 As Integer)
             If 値 < 0 Then
                 Throw New Exception("負の整数が入力されました。")
             End If
-            m_値 = 値
         End Sub
 
         Public ReadOnly Property 値 As Integer

@@ -53,13 +53,13 @@
             End Get
         End Property
 
-        Public ReadOnly Property 価格(価格区分 As 価格.区分リスト, 照会日 As PrimitiveObject.日付) As PrimitiveObject.金額
+        Public ReadOnly Property 価格(価格区分 As 適用価格.価格.区分リスト, 照会日 As PrimitiveObject.日付) As PrimitiveObject.金額
             Get
                 Return データベースから適用価格を参照する(価格区分, 照会日)
             End Get
         End Property
 
-        Private Function データベースから適用価格を参照する(価格区分 As 価格.区分リスト, 照会日 As PrimitiveObject.日付) As PrimitiveObject.金額
+        Private Function データベースから適用価格を参照する(価格区分 As 適用価格.価格.区分リスト, 照会日 As PrimitiveObject.日付) As PrimitiveObject.金額
             Try
                 Using MyDB As New SampleAppDBEntities
                     Dim 適用価格の集合 = From 適用価格 In MyDB.T_適用価格
@@ -83,8 +83,8 @@
         Public ReadOnly Property 個別売上利益(照会日 As PrimitiveObject.日付) As PrimitiveObject.金額
             Get
                 Try
-                    Dim 販売価格 As Decimal = データベースから適用価格を参照する(BusinessObject.商品.価格.区分リスト.販売, 照会日).値
-                    Dim 仕入価格 As Decimal = データベースから適用価格を参照する(BusinessObject.商品.価格.区分リスト.仕入, 照会日).値
+                    Dim 販売価格 As Decimal = データベースから適用価格を参照する(適用価格.価格.区分リスト.販売, 照会日).値
+                    Dim 仕入価格 As Decimal = データベースから適用価格を参照する(適用価格.価格.区分リスト.仕入, 照会日).値
                     Return New PrimitiveObject.金額(販売価格 - 仕入価格)
                 Catch ex As Exception
                     Throw New Exception("照会日に適用される仕入価格または販売価格が存在しないため、個別売上利益を参照できません。")

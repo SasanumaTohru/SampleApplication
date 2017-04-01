@@ -24,8 +24,10 @@
                 Select Case 曜日表示
                     Case 曜日表示.なし
                         _値 = m_値.ToString("yyyy年M月d日")
-                    Case Else
+                    Case 曜日表示.あり
                         _値 = m_値.ToString("yyyy年M月d日(ddd)")
+                    Case Else
+                        曜日表示の指定が間違っている()
                 End Select
                 Return _値
             End Get
@@ -39,12 +41,18 @@
                 Select Case 曜日表示
                     Case 曜日表示.なし
                         _値 = m_値.ToString("gy年M月d日", 文化圏)
-                    Case Else
+                    Case 曜日表示.あり
                         _値 = m_値.ToString("gy年M月d日(ddd)", 文化圏)
+                    Case Else
+                        曜日表示の指定が間違っている()
                 End Select
                 Return _値
             End Get
         End Property
+
+        Private Shared Sub 曜日表示の指定が間違っている()
+            Throw New Exception("曜日表示の指定が正しくありません。")
+        End Sub
 
     End Class
 End Namespace

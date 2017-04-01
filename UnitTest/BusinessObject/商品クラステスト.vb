@@ -32,22 +32,22 @@ Imports SampleApplication.PrimitiveObject
         Dim テストデータ As New TestDataSetup
         テストデータ.適用価格のテストデータを準備する()
 
-        Assert.AreEqual(90D, テストアイテム.商品.価格(商品.価格.区分リスト.仕入, New 日付(Today)).値)
-        Assert.AreEqual(100D, テストアイテム.商品.価格(商品.価格.区分リスト.販売, New 日付(Today)).値)
+        Assert.AreEqual(90D, テストアイテム.商品.価格(商品.適用価格.価格.区分リスト.仕入, New 日付(Today)).値)
+        Assert.AreEqual(100D, テストアイテム.商品.価格(商品.適用価格.価格.区分リスト.販売, New 日付(Today)).値)
         Assert.AreEqual(10D, テストアイテム.商品.個別売上利益(New 日付(Today)).値)
 
-        Assert.AreEqual(85D, テストアイテム.商品.価格(商品.価格.区分リスト.仕入, New 日付(Today.AddDays(-1))).値)
-        Assert.AreEqual(90D, テストアイテム.商品.価格(商品.価格.区分リスト.販売, New 日付(Today.AddDays(-1))).値)
+        Assert.AreEqual(85D, テストアイテム.商品.価格(商品.適用価格.価格.区分リスト.仕入, New 日付(Today.AddDays(-1))).値)
+        Assert.AreEqual(90D, テストアイテム.商品.価格(商品.適用価格.価格.区分リスト.販売, New 日付(Today.AddDays(-1))).値)
         Assert.AreEqual(5D, テストアイテム.商品.個別売上利益(New 日付(Today.AddDays(-1))).値)
 
-        Assert.AreEqual(105D, テストアイテム.商品.価格(商品.価格.区分リスト.仕入, New 日付(Today.AddDays(1))).値)
-        Assert.AreEqual(120D, テストアイテム.商品.価格(商品.価格.区分リスト.販売, New 日付(Today.AddDays(1))).値)
+        Assert.AreEqual(105D, テストアイテム.商品.価格(商品.適用価格.価格.区分リスト.仕入, New 日付(Today.AddDays(1))).値)
+        Assert.AreEqual(120D, テストアイテム.商品.価格(商品.適用価格.価格.区分リスト.販売, New 日付(Today.AddDays(1))).値)
         Assert.AreEqual(15D, テストアイテム.商品.個別売上利益(New 日付(Today.AddDays(1))).値)
 
     End Sub
 
     <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 条件に合う適用価格がない()
-        Assert.AreEqual(110D, テストアイテム.商品.価格(商品.価格.区分リスト.販売, New 日付(#1/1/2017#)).値)
+        Assert.AreEqual(110D, テストアイテム.商品.価格(商品.適用価格.価格.区分リスト.販売, New 日付(#1/1/2017#)).値)
     End Sub
 
     <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 照会日の個別売上利益が存在しない()

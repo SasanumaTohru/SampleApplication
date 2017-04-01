@@ -4,12 +4,12 @@
         Private m_値 As String
 
         Public Sub New(値 As String)
-            値は正しい(値)
+            文字が入力されている(値)
             m_値 = 値
         End Sub
 
-        Private Sub 値は正しい(値 As String)
-            If Trim(値) = String.Empty Then
+        Private Sub 文字が入力されている(値 As String)
+            If 値.Trim() = String.Empty Then
                 Throw New Exception("文字が入力されていません。")
             End If
         End Sub

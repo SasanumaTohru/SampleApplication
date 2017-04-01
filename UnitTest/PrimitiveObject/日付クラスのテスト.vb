@@ -22,4 +22,15 @@
 
     End Sub
 
+    <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 日付クラスの例外テスト1()
+        Dim 誕生日 As New 日付(#5/25/2017#)
+        Assert.AreEqual("", 誕生日.和暦年月日文字列(9))
+    End Sub
+
+    <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 日付クラスの例外テスト2()
+        Dim 誕生日 As New 日付(#5/25/2017#)
+        Assert.AreEqual("", 誕生日.西暦年月日文字列(9))
+    End Sub
+
+
 End Class

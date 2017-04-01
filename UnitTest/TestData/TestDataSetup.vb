@@ -112,4 +112,9 @@
         SQLを実行する(Insert文)
     End Sub
 
+    Public Sub 適用価格テーブルをクリアする()
+        Dim Delete文 As String = "DELETE FROM [dbo].[T_適用価格]"
+        SQLを実行する(Delete文)
+    End Sub
+
 End Class
