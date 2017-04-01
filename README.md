@@ -13,7 +13,8 @@ Blog『ソフトウェア開発戦略（ http://swdevstrategy.blogspot.jp/ ）�
   
   ドメインモデル  
 <div class="separator" style="clear: both; text-align: center;">
-<a href="https://4.bp.blogspot.com/-cnLT4L1iwkM/WLB-Bbvg-FI/AAAAAAAAAMA/OT1v5epoHzce9-4_9kvzUqIIWIBcRqDZQCPcB/s1600/%25E3%2583%2589%25E3%2583%25A1%25E3%2582%25A4%25E3%2583%25B3%25E3%2583%25A2%25E3%2583%2587%25E3%2583%25AB.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="222" src="https://4.bp.blogspot.com/-cnLT4L1iwkM/WLB-Bbvg-FI/AAAAAAAAAMA/OT1v5epoHzce9-4_9kvzUqIIWIBcRqDZQCPcB/s320/%25E3%2583%2589%25E3%2583%25A1%25E3%2582%25A4%25E3%2583%25B3%25E3%2583%25A2%25E3%2583%2587%25E3%2583%25AB.jpg" width="320" /></a></div>
+<a href="https://1.bp.blogspot.com/-DZmRiamyuI0/WN81LfygvII/AAAAAAAAAN4/cAfWbPNX1oApYDq1G_sMvTplF5gQbBtCQCPcB/s1600/%25E3%2583%2589%25E3%2583%25A1%25E3%2582%25A4%25E3%2583%25B3%25E3%2583%25A2%25E3%2583%2587%25E3%2583%25AB02.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="240" src="https://1.bp.blogspot.com/-DZmRiamyuI0/WN81LfygvII/AAAAAAAAAN4/cAfWbPNX1oApYDq1G_sMvTplF5gQbBtCQCPcB/s400/%25E3%2583%2589%25E3%2583%25A1%25E3%2582%25A4%25E3%2583%25B3%25E3%2583%25A2%25E3%2583%2587%25E3%2583%25AB02.jpg" width="400" /></a></div>
+
 
 
 このサンプル（Visual Studioのソリューション）は、次のプロジェクトで構成されています。  
