@@ -4,7 +4,7 @@ Imports SampleApplication.PrimitiveObject
 
 <TestClass()> Public Class 取扱商品テスト
 
-    <TestMethod()> <TestCategory("基本テスト")> <TestCategory("基本テスト")> Public Sub 取扱商品テストの基本テスト()
+    <TestMethod()> <TestCategory("基本テスト")> Public Sub 取扱商品テストの基本テスト()
 
         'テストに使うID
         Const 商品1のID As String = "555555"
