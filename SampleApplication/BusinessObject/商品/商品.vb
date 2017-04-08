@@ -16,7 +16,7 @@
         End Sub
 
         Public Sub New(商品 As M_商品)
-            m_商品ID = New 商品ID(商品.商品ID)
+            m_商品ID = New 商品ID(商品)
             m_メーカー = New メーカー(New メーカーID(商品.メーカー))
             m_名称 = New PrimitiveObject.名称(商品.商品名)
             m_分類 = New 分類(New 分類コード(商品.分類))
@@ -55,36 +55,17 @@
 
         Public ReadOnly Property 価格(価格区分 As 適用価格.価格.区分リスト, 照会日 As PrimitiveObject.日付) As PrimitiveObject.金額
             Get
-                Return データベースから適用価格を参照する(価格区分, 照会日)
+                Dim 適用価格スケジュール As New 適用価格.スケジュール
+                Return 適用価格スケジュール.適用価格を照会する(m_商品ID, 価格区分, 照会日)
             End Get
         End Property
-
-        Private Function データベースから適用価格を参照する(価格区分 As 適用価格.価格.区分リスト, 照会日 As PrimitiveObject.日付) As PrimitiveObject.金額
-            Try
-                Using MyDB As New SampleAppDBEntities
-                    Dim 適用価格の集合 = From 適用価格 In MyDB.T_適用価格
-                                  Where 適用価格.商品ID = m_商品ID.値 And 適用価格.区分 = 価格区分 And 適用価格.適用開始日 <= 照会日.値
-                                  Order By 適用価格.適用開始日 Descending
-
-                    適用できる価格がある(適用価格の集合)
-                    Return New PrimitiveObject.金額(適用価格の集合.First.価格)
-                End Using
-            Catch ex As Exception
-                Throw New Exception("データベースを参照できませんでした。")
-            End Try
-        End Function
-
-        Private Sub 適用できる価格がある(適用価格の集合 As IOrderedQueryable(Of T_適用価格))
-            If 適用価格の集合.Count = 0 Then
-                Throw New Exception("照会日に適用される仕入価格または販売価格が存在しません。")
-            End If
-        End Sub
 
         Public ReadOnly Property 個別売上利益(照会日 As PrimitiveObject.日付) As PrimitiveObject.金額
             Get
                 Try
-                    Dim 販売価格 As Decimal = データベースから適用価格を参照する(適用価格.価格.区分リスト.販売, 照会日).値
-                    Dim 仕入価格 As Decimal = データベースから適用価格を参照する(適用価格.価格.区分リスト.仕入, 照会日).値
+                    Dim 適用価格スケジュール As New BusinessObject.商品.適用価格.スケジュール
+                    Dim 販売価格 As Decimal = 適用価格スケジュール.適用価格を照会する(m_商品ID, 適用価格.価格.区分リスト.販売, 照会日).値
+                    Dim 仕入価格 As Decimal = 適用価格スケジュール.適用価格を照会する(m_商品ID, 適用価格.価格.区分リスト.仕入, 照会日).値
                     Return New PrimitiveObject.金額(販売価格 - 仕入価格)
                 Catch ex As Exception
                     Throw New Exception("照会日に適用される仕入価格または販売価格が存在しないため、個別売上利益を参照できません。")

@@ -20,5 +20,11 @@
             End Get
         End Property
 
+        Public Sub 値に加算する(値 As Integer)
+            Dim 検証する値 = m_値 + 値
+            値は0以上である(検証する値)
+            m_値 = 検証する値
+        End Sub
+
     End Class
 End Namespace

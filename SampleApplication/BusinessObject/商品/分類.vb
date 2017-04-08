@@ -21,6 +21,11 @@
             End Try
         End Function
 
+        Public Sub New(分類 As M_商品分類)
+            m_コード = New 分類コード(分類)
+            m_名称 = New PrimitiveObject.名称(分類.名称)
+        End Sub
+
         Public ReadOnly Property ID As 分類コード
             Get
                 Return m_コード

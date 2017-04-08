@@ -8,11 +8,11 @@
     Private Const m_IntegratedSecurity As String = "Integrated Security = SSPI;"
     Private Const m_DB接続文字列 As String = m_DataSource & m_InitialCatalog & m_IntegratedSecurity
 
-    <TestMethod> <TestCategory("テストデータ作成")> Public Sub テスト商品データの作成()
-        SQLを実行する("INSERT INTO [dbo].[M_商品] ([商品ID], [メーカー], [商品名], [分類], [単位])
-                               VALUES (N'999990', 11, N'A4コピー用紙', 8, 6);")
-        指定した商品IDが存在する場合には削除する("999990")
-    End Sub
+    '<TestMethod> <TestCategory("テストデータ作成")> Public Sub テスト商品データの作成()
+    '    SQLを実行する("INSERT INTO [dbo].[M_商品] ([商品ID], [メーカー], [商品名], [分類], [単位])
+    '                           VALUES (N'999990', 11, N'A4コピー用紙', 8, 6);")
+    '    指定した商品IDが存在する場合には削除する("999990")
+    'End Sub
 
     ''' <summary>
     ''' SQLを実行する汎用メソッド
@@ -112,9 +112,54 @@
         SQLを実行する(Insert文)
     End Sub
 
-    Public Sub 適用価格テーブルをクリアする()
-        Dim Delete文 As String = "DELETE FROM [dbo].[T_適用価格]"
+    Public Sub 適用価格テーブルをクリアする(商品ID As String)
+        Dim Delete文 As String = $"DELETE FROM [dbo].[T_適用価格]  WHERE [商品ID] = '{商品ID}'"
         SQLを実行する(Delete文)
     End Sub
+
+
+    '<TestMethod> <TestCategory("テストデータ作成")> Public Sub 大量データテスト実行()
+    '    大量データテスト()
+    'End Sub
+
+    Public Sub 大量データテスト()
+        Dim データ生成数 As Integer = 1
+
+        SQLを実行する("DELETE FROM [dbo].[M_商品]")
+        Dim メーカーID As String = "1"
+        Dim 分類 As String = "1"
+        Dim 単位 As String = "1"
+        For i = 1 To データ生成数
+            Dim 商品ID As String = $"'{ i.ToString("000000")}'"
+            Dim 商品名 As String = $"'Test商品{i.ToString}'"
+            SQLを実行する($"INSERT INTO [dbo].[M_商品] ([商品ID], [メーカー], [商品名], [分類], [単位]) VALUES ({商品ID}, {メーカーID}, {商品名}, {分類}, {単位})")
+        Next
+
+        SQLを実行する("DELETE FROM [dbo].[T_適用価格]")
+        Dim 区分 As String = "2"
+        Dim 価格 As String = "123456"
+        Dim 適用開始日 As String = "'2017/1/1'"
+        For i = 1 To データ生成数
+            Dim 商品IDb As String = $"'{ i.ToString("000000")}'"
+            SQLを実行する($"INSERT INTO [dbo].[T_適用価格] ([商品ID], [区分], [価格], [適用開始日]) VALUES ({商品IDb}, {区分}, {価格}, {適用開始日})")
+        Next
+
+
+    End Sub
+
+    '<TestMethod> Public Sub test()
+    '    Using MyDB As New SampleApplication.SampleAppDBEntities
+    '        Dim rs = From o In MyDB.M_商品
+    '                 Where o.分類 = 1
+    '                 Order By o.商品ID Ascending
+    '                 Skip (50)
+    '                 Take (50)
+
+    '        For Each p In rs
+
+    '            Debug.Print(p.商品ID)
+    '        Next
+    '    End Using
+    'End Sub
 
 End Class

@@ -16,13 +16,12 @@
         End Enum
 
         Public Sub New(商品ID As 商品ID,
-                       価格区分 As 区分リスト, 変更後価格 As PrimitiveObject.金額,
+                       価格区分 As 区分リスト, 値 As PrimitiveObject.金額,
                        適用開始日 As PrimitiveObject.日付)
             価格区分が正しい(価格区分)
-            適用開始日が明日以降である(適用開始日)
             m_商品ID = 商品ID
             m_価格区分 = 価格区分
-            m_値 = 変更後価格
+            m_値 = 値
             m_適用開始日 = 適用開始日
         End Sub
 
@@ -49,13 +48,6 @@
                 Return 価格区分リストの数列を取得する.Max
             End Get
         End Property
-
-        Private Sub 適用開始日が明日以降である(摘要開始日 As PrimitiveObject.日付)
-            Dim 設定できる日付 As New PrimitiveObject.日付(Date.Today.AddDays(1))
-            If 摘要開始日.値 < 設定できる日付.値 Then
-                Throw New Exception("摘要開始日には明日以降の日付が必要です。")
-            End If
-        End Sub
 
         Public ReadOnly Property 商品ID As 商品ID
             Get

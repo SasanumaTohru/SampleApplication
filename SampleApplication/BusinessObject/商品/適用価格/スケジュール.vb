@@ -6,7 +6,7 @@
         Private m_リスト As New List(Of 価格)
 
         Public Sub New()
-            データベースから適用価格を読み込む()
+            'データベースから適用価格を読み込む()
         End Sub
 
         Private Sub データベースから適用価格を読み込む()
@@ -21,11 +21,12 @@
                     Next
                 End Using
             Catch ex As Exception
-                Throw New Exception("適用価格の読込に失敗しました。")
+                Throw New Exception(ex.Message)
             End Try
         End Sub
 
         Public Sub 追加する(適用価格 As 価格)
+            '適用開始日は明日以降の日付である
             予定は一意である(適用価格)
             データベースに保存する(適用価格)
             m_リスト.Add(適用価格)
@@ -65,7 +66,13 @@
 
         Public ReadOnly Property 項目(商品ID As 商品ID, 価格区分 As 価格.区分リスト, 適用開始日 As PrimitiveObject.日付) As 価格
             Get
-                Return 適用価格を検索する(商品ID, 価格区分, 適用開始日).First
+                Dim 検索した適用価格 As 価格
+                Try
+                    検索した適用価格 = 適用価格を検索する(商品ID, 価格区分, 適用開始日).First
+                Catch ex As Exception
+                    Throw New Exception("条件に一致した適用価格はありません。")
+                End Try
+                Return 検索した適用価格
             End Get
         End Property
 
@@ -75,6 +82,31 @@
 
             Return ヒットリスト
         End Function
+
+        Public Function 適用価格を照会する(商品ID As 商品ID, 価格区分 As 価格.区分リスト, 照会日 As PrimitiveObject.日付) As PrimitiveObject.金額
+            Return データベースから適用価格を参照する(商品ID, 価格区分, 照会日)
+        End Function
+
+        Private Function データベースから適用価格を参照する(商品ID As 商品ID, 価格区分 As 適用価格.価格.区分リスト, 照会日 As PrimitiveObject.日付) As PrimitiveObject.金額
+            Try
+                Using MyDB As New SampleAppDBEntities
+                    Dim 適用価格の集合 = From 適用価格 In MyDB.T_適用価格
+                                  Where 適用価格.商品ID = 商品ID.値 And 適用価格.区分 = 価格区分 And 適用価格.適用開始日 <= 照会日.値
+                                  Order By 適用価格.適用開始日 Descending
+
+                    適用できる価格がある(適用価格の集合)
+                    Return New PrimitiveObject.金額(適用価格の集合.First.価格)
+                End Using
+            Catch ex As Exception
+                Throw New Exception(ex.Message)
+            End Try
+        End Function
+
+        Private Sub 適用できる価格がある(適用価格の集合 As IOrderedQueryable(Of T_適用価格))
+            If 適用価格の集合.Count = 0 Then
+                Throw New Exception("照会日に適用される仕入価格または販売価格が存在しません。")
+            End If
+        End Sub
 
     End Class
 End Namespace

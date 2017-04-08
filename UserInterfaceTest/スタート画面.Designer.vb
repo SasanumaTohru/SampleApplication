@@ -24,11 +24,12 @@ Partial Class スタート画面
     Private Sub InitializeComponent()
         Me.cmd実行 = New System.Windows.Forms.Button()
         Me.txt商品ID = New System.Windows.Forms.TextBox()
+        Me.lbl週品ID = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'cmd実行
         '
-        Me.cmd実行.Location = New System.Drawing.Point(511, 280)
+        Me.cmd実行.Location = New System.Drawing.Point(687, 358)
         Me.cmd実行.Name = "cmd実行"
         Me.cmd実行.Size = New System.Drawing.Size(297, 141)
         Me.cmd実行.TabIndex = 0
@@ -38,20 +39,31 @@ Partial Class スタート画面
         'txt商品ID
         '
         Me.txt商品ID.Font = New System.Drawing.Font("メイリオ", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.txt商品ID.Location = New System.Drawing.Point(227, 102)
+        Me.txt商品ID.Location = New System.Drawing.Point(199, 59)
         Me.txt商品ID.Name = "txt商品ID"
-        Me.txt商品ID.Size = New System.Drawing.Size(340, 43)
+        Me.txt商品ID.Size = New System.Drawing.Size(256, 43)
         Me.txt商品ID.TabIndex = 1
         '
-        'Form1
+        'lbl週品ID
+        '
+        Me.lbl週品ID.AutoSize = True
+        Me.lbl週品ID.Font = New System.Drawing.Font("メイリオ", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.lbl週品ID.Location = New System.Drawing.Point(46, 62)
+        Me.lbl週品ID.Name = "lbl週品ID"
+        Me.lbl週品ID.Size = New System.Drawing.Size(133, 36)
+        Me.lbl週品ID.TabIndex = 2
+        Me.lbl週品ID.Text = "商品ID(&I):"
+        '
+        'スタート画面
         '
         Me.AcceptButton = Me.cmd実行
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1096, 575)
+        Me.Controls.Add(Me.lbl週品ID)
         Me.Controls.Add(Me.txt商品ID)
         Me.Controls.Add(Me.cmd実行)
-        Me.Name = "Form1"
+        Me.Name = "スタート画面"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "テスト画面"
         Me.ResumeLayout(False)
@@ -61,4 +73,5 @@ Partial Class スタート画面
 
     Friend WithEvents cmd実行 As Button
     Friend WithEvents txt商品ID As TextBox
+    Friend WithEvents lbl週品ID As Label
 End Class

@@ -5,8 +5,9 @@ Imports SampleApplication.PrimitiveObject
 
     <TestMethod()> <TestCategory("基本テスト")> Public Sub 価格変更スケジュールクラス基本テスト()
 
+        TestDataSetup.テスト用データ商品ID999999の確認()
         Dim テストデータ準備 As New TestDataSetup
-        テストデータ準備.適用価格テーブルをクリアする()
+        テストデータ準備.適用価格テーブルをクリアする("999999")
 
         Dim 価格を変更する商品 As 商品ID = New 商品ID("999999", 商品ID.コンストラクタオプション.参照)
         Dim 適用価格1 As New 適用価格.価格(価格を変更する商品, 適用価格.価格.区分リスト.仕入, New 金額(89800D), New 日付("#4/1/2020#"))
@@ -32,7 +33,7 @@ Imports SampleApplication.PrimitiveObject
     <TestMethod()> <TestCategory("例外テスト")> <ExpectedException(GetType(Exception))> Public Sub 予定の一意性チェック()
 
         Dim テストデータ準備 As New TestDataSetup
-        テストデータ準備.適用価格テーブルをクリアする()
+        テストデータ準備.適用価格テーブルをクリアする("999999")
 
         Dim 対象商品ID As 商品ID = New 商品ID("999999", 商品ID.コンストラクタオプション.参照)
         Dim 適用価格 As New 適用価格.価格(対象商品ID, SampleApplication.BusinessObject.商品.適用価格.価格.区分リスト.仕入, New 金額(89800D), New 日付("#4/1/2020#"))
@@ -46,9 +47,9 @@ Imports SampleApplication.PrimitiveObject
     End Sub
 
     <TestMethod()> <TestCategory("例外テスト")> Public Sub 予定の一意性チェック例外メッセージ確認()
-
+        TestDataSetup.テスト用データ商品ID999999の確認()
         Dim テストデータ準備 As New TestDataSetup
-        テストデータ準備.適用価格テーブルをクリアする()
+        テストデータ準備.適用価格テーブルをクリアする("999999")
 
         Dim 対象商品ID As 商品ID = New 商品ID("999999", 商品ID.コンストラクタオプション.参照)
         Dim 適用価格 As New 適用価格.価格(対象商品ID, SampleApplication.BusinessObject.商品.適用価格.価格.区分リスト.仕入, New 金額(89800D), New 日付("#4/1/2020#"))
@@ -62,6 +63,17 @@ Imports SampleApplication.PrimitiveObject
         Catch ex As Exception
             Debug.Print(ex.Message)
         End Try
+
+    End Sub
+
+    <TestMethod> <ExpectedException(GetType(Exception))> Public Sub 価格が見つからない()
+        TestDataSetup.テスト用データ商品ID999999の確認()
+        Dim foo As New TestDataSetup
+        foo.適用価格テーブルをクリアする("999999")
+
+
+        Dim doo As New 適用価格.スケジュール
+        Debug.Print(doo.項目(New 商品ID("999999"), 適用価格.価格.区分リスト.販売, New 日付(#12/31/1984#)).値.値)
 
     End Sub
 

@@ -18,6 +18,10 @@
             End Using
         End Sub
 
+        Public Sub New(分類 As M_商品分類)
+            m_値 = 分類.コード
+        End Sub
+
         Public ReadOnly Property 値 As Integer
             Get
                 Return m_値

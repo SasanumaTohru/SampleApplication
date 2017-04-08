@@ -13,6 +13,10 @@
             インスタンスの用途に対して商品IDは適切である(値, 用途)
         End Sub
 
+        Public Sub New（商品 As M_商品)
+            m_値 = 商品.商品ID
+        End Sub
+
         Private Sub 値の表現形式が正しい(値 As String)
             If Text.RegularExpressions.Regex.IsMatch(値, "^[0-9]{6}$") = False Then
                 Throw New Exception("商品IDに6桁の数字以外は使用できません。")
